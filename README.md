@@ -109,12 +109,18 @@ In the drill: `space` to flip, `1` / `2` / `3` to grade.
 ### Pronunciation — two sources, kept separate
 
 - **▶︎** uses your device's German voice. Instant, offline, but synthetic.
-  If nothing plays, open Settings → **Test the sound**: it tells you whether the
-  browser has speech at all, how many German voices it found, and whether the
-  test utterance actually came back.
 - **🗣** opens [Forvo](https://forvo.com), where actual people say the word.
-  For anything where the melody matters, use this one.
 
+**Silent mode:** the app sets its audio session to *playback*, so sound goes out
+through the media channel — the one music uses — rather than the ringer channel.
+That means the iPhone mute switch does not silence it. This needs iOS 16.4 or
+newer; below that, the mute switch still wins and there is no way around it.
+
+**If you hear nothing,** open Settings → **Sound check**. It runs two different
+paths to the speaker: a beep through Web Audio, then German speech. A beep you
+can hear but speech you cannot means the voice is missing, not the volume —
+install one under iOS Settings › Accessibility › Spoken Content › Voices ›
+German.
 Nothing AI-generated is passed off as "real German" anywhere. Every dialogue,
 slang entry and culture note is labelled for what it is.
 

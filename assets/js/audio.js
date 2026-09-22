@@ -19,6 +19,9 @@
   var warned = false;          // tell the learner once, not on every word
   var keepAlive = null;
   var onVoices = [];
+  var ctx = null;            // AudioContext, used to hold the session open
+  var silentSrc = null;      // near-silent loop that keeps it open
+  var silentStop = null;
 
   function loadVoices() {
     if (!synth) return;
@@ -40,10 +43,62 @@
   };
 
   /**
+   * Declare this page as media playback rather than UI sound.
+   *
+   * This is the whole reason audio was inaudible with the ringer switch off:
+   * an iPhone routes a page's default ("auto") audio session through the
+   * ringer channel, which the mute switch silences. A "playback" session goes
+   * through the media channel instead — the one music uses — and that channel
+   * ignores the mute switch entirely.
+   */
+  function primeSession() {
+    try {
+      if (navigator.audioSession) navigator.audioSession.type = 'playback';
+    } catch (e) { /* not supported here; speech may still work unmuted */ }
+  }
+
+  /**
+   * iOS only actually applies the session while something is playing, and it
+   * drops back to the ringer channel between utterances. Holding a near-silent
+   * loop open across a phrase keeps speech on the media channel.
+   * Stopped shortly after speaking so we do not sit on the user's audio
+   * session — that would interrupt their music.
+   */
+  function holdSession() {
+    try {
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      if (!ctx) ctx = new Ctx();
+      if (ctx.state === 'suspended') ctx.resume();
+      if (silentStop) { clearTimeout(silentStop); silentStop = null; }
+      if (silentSrc) return;                       // already holding
+      var buf = ctx.createBuffer(1, Math.max(1, Math.floor(ctx.sampleRate * 0.5)), ctx.sampleRate);
+      silentSrc = ctx.createBufferSource();
+      silentSrc.buffer = buf;
+      silentSrc.loop = true;
+      var g = ctx.createGain();
+      g.gain.value = 0.0001;      // inaudible, but real output so iOS keeps the session
+      silentSrc.connect(g);
+      g.connect(ctx.destination);
+      silentSrc.start(0);
+    } catch (e) { /* ignore — only an optimisation */ }
+  }
+  function releaseSession(delay) {
+    if (silentStop) clearTimeout(silentStop);
+    silentStop = setTimeout(function () {
+      try { if (silentSrc) { silentSrc.stop(); silentSrc.disconnect(); } } catch (e) {}
+      silentSrc = null;
+      silentStop = null;
+    }, delay || 2000);
+  }
+
+  /**
    * iOS and Chrome refuse to speak until one utterance has been started from
-   * inside a real user gesture. Spend that first gesture on a silent one.
+   * inside a real user gesture. Spend that first gesture on a silent one, and
+   * set up the audio session at the same time — both need a gesture.
    */
   function unlock() {
+    primeSession();
     if (unlocked || !synth) return;
     unlocked = true;
     try {
@@ -62,6 +117,10 @@
 
   function failOnce(msg) {
     if (warned) return;
+    // The sound check reports failures in detail itself; a toast on top of it
+    // would only cover the buttons.
+    var sheet = document.getElementById('settingsSheet');
+    if (sheet && !sheet.hidden) return;
     warned = true;
     DE.toast(msg, 5000);
   }
@@ -93,6 +152,7 @@
       if (done) return;
       done = true;
       stopKeepAlive();
+      releaseSession(2000);
       if (onEnd) onEnd();
     }
     u.onstart = function () { started = true; };
@@ -106,6 +166,8 @@
       finish();
     };
 
+    primeSession();
+    holdSession();
     try {
       synth.speak(u);
     } catch (e) {
@@ -146,8 +208,48 @@
     }
   };
 
+  /**
+   * A short beep through Web Audio. Deliberately not speech: if this is
+   * audible but words are not, the problem is the voice, not the mute switch.
+   * Returns true if it managed to start.
+   */
+  A.tone = function () {
+    try {
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return false;
+      primeSession();
+      if (!ctx) ctx = new Ctx();
+      if (ctx.state === 'suspended') ctx.resume();
+      holdSession();
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.value = 660;
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.25, ctx.currentTime + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.45);
+      o.connect(g); g.connect(ctx.destination);
+      o.start();
+      o.stop(ctx.currentTime + 0.5);
+      releaseSession(1500);
+      return true;
+    } catch (e) { return false; }
+  };
+
+  /** Everything we know about whether sound can work here. */
+  A.status = function () {
+    return {
+      speech: !!synth,
+      voices: voices.length,
+      unlocked: unlocked,
+      webAudio: !!(window.AudioContext || window.webkitAudioContext),
+      sessionApi: !!navigator.audioSession,
+      sessionType: navigator.audioSession ? navigator.audioSession.type : null
+    };
+  };
+
   A.stop = function () {
     stopKeepAlive();
+    releaseSession(300);
     if (synth) { try { synth.cancel(); } catch (e) { /* ignore */ } }
   };
 

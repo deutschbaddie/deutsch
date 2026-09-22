@@ -30,9 +30,15 @@
             U.esc(v.name.replace(/Microsoft |Google /, '')) + ' · ' + U.esc(v.lang) + '</option>';
         }).join('') + '</select>' : '') +
       '</div>' +
-      '<div class="srow"><div class="lab"><b>Test the sound</b><small id="soundDiag">' +
-      soundDiagnosis() + '</small></div>' +
-      '<button class="btn btn-ghost btn-sm" data-test-sound>▶︎ Play a test</button></div>';
+      '<div class="srow" style="display:block">' +
+      '<div class="lab" style="margin-bottom:10px"><b>Sound check</b>' +
+      '<small>Two different paths to your speaker. Run them in order — which one fails tells us why.</small></div>' +
+      '<div class="btn-row">' +
+      '<button class="btn btn-ghost btn-sm" data-test-tone>1 · Beep</button>' +
+      '<button class="btn btn-ghost btn-sm" data-test-speech>2 · Speak German</button>' +
+      '</div>' +
+      '<div class="note" id="soundDiag" style="margin-top:12px">' + soundDiagnosis() + '</div>' +
+      '</div>';
 
     function row(b, sm, ctrl) {
       return '<div class="srow"><div class="lab"><b>' + b + '</b><small>' + sm + '</small></div>' + ctrl + '</div>';
@@ -58,31 +64,53 @@
       DE.save();
       if (k !== 'rate') DE.audio.say('Alles klar. Los geht\'s.');
     });
-    var testBtn = body.querySelector('[data-test-sound]');
-    if (testBtn) testBtn.addEventListener('click', function () {
-      var diag = body.querySelector('#soundDiag');
+    function diagBox() { return body.querySelector('#soundDiag'); }
+
+    var toneBtn = body.querySelector('[data-test-tone]');
+    if (toneBtn) toneBtn.addEventListener('click', function () {
+      var started = DE.audio.tone();
+      diagBox().innerHTML = started
+        ? '<b>Beep sent.</b> Heard it? Then your speaker and the mute switch are fine \u2014 ' +
+          'now try button 2. Heard nothing? Turn the volume up; if it is already up, ' +
+          'this device is blocking web audio entirely.'
+        : '<b>This browser has no Web Audio at all.</b> Sound will not work here. ' +
+          'Use the \ud83d\udde3 links for real speakers.';
+    });
+
+    var speechBtn = body.querySelector('[data-test-speech]');
+    if (speechBtn) speechBtn.addEventListener('click', function () {
       var spoke = false;
-      diag.textContent = 'Playing\u2026';
+      diagBox().innerHTML = '<b>Speaking\u2026</b>';
       DE.audio.say('Gr\u00fc\u00df dich! Na, wie l\u00e4uft\'s bei dir so?', null, function () {
         spoke = true;
-        diag.textContent = 'That worked. ' + soundDiagnosis();
+        diagBox().innerHTML = '<b>Speech finished.</b> ' + soundDiagnosis();
       });
-      // If nothing has come back by now, speech is not working on this device.
       setTimeout(function () {
-        if (!spoke) diag.textContent = 'No sound came back. Check your ringer switch and volume, ' +
-          'then install a German voice in your system settings. The \ud83d\udde3 links always work.';
+        if (spoke) return;
+        var st = DE.audio.status();
+        diagBox().innerHTML = '<b>Speech never started.</b> ' +
+          (!st.speech ? 'This browser has no speech synthesis. '
+            : !st.voices ? 'No German voice is installed. On iPhone: Settings \u203a Accessibility \u203a ' +
+              'Spoken Content \u203a Voices \u203a German. '
+            : 'A German voice exists but the browser refused to use it. ') +
+          'The \ud83d\udde3 link on every word plays a real person instead.';
       }, 3500);
     });
 
     DE.audio.bind(body);
   }
 
-  /** One honest line about whether speech can work on this device. */
+  /** An honest read of what this device can and cannot do with sound. */
   function soundDiagnosis() {
-    if (!DE.audio.available()) return 'This browser has no speech output at all.';
-    var n = DE.audio.voices().length;
-    if (!n) return 'No German voice found yet. It may still be loading \u2014 try the button.';
-    return n + ' German voice(s) available.';
+    var st = DE.audio.status();
+    var bits = [];
+    bits.push(st.speech ? (st.voices ? st.voices + ' German voice(s) found' : 'speech available, no German voice yet')
+      : 'no speech synthesis');
+    bits.push(st.webAudio ? 'web audio ok' : 'no web audio');
+    bits.push(st.sessionApi
+      ? 'media audio session on \u2014 the mute switch should not silence this'
+      : 'no media-session control (older iOS: the mute switch will silence sound)');
+    return bits.join(' \u00b7 ');
   }
 
   function openSheet() {
