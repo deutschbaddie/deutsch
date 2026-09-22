@@ -252,6 +252,33 @@ let FAILED=0;
  ok('manifest start_url resolves inside the subdirectory ('+startUrl+')', startUrl==='/deutsch/');
  await subCtx.close(); sub.close();
 
+ // ---- one tap must trigger exactly one utterance.
+ // bind() used to re-attach a listener on every render to containers that
+ // persist, so a tap fired N overlapping utterances that cancelled each
+ // other and nothing was heard.
+ const tap = await b.newPage();
+ await tap.goto('http://localhost:8098/', { waitUntil:'networkidle' });
+ await tap.waitForTimeout(900);
+ await tap.evaluate(()=>{ window.__says=0; const o=DE.audio.say;
+   DE.audio.say=function(){ window.__says++; return o.apply(this,arguments); }; });
+ for (const h of ['#/glossar','#/ich','#/glossar','#/ich','#/glossar']) {
+   await tap.evaluate(x=>location.hash=x, h); await tap.waitForTimeout(120);
+ }
+ await tap.evaluate(()=>window.__says=0);
+ await tap.click('.glist .grow .spk'); await tap.waitForTimeout(150);
+ const listTaps = await tap.evaluate(()=>window.__says);
+ ok('one tap = one utterance in a word list (got '+listTaps+')', listTaps===1);
+
+ await tap.evaluate(()=>location.hash='#/unit/a1-01'); await tap.waitForTimeout(250);
+ await tap.click('[data-deck]'); await tap.waitForTimeout(250);
+ for (let i=0;i<14;i++){ if (await tap.$('.vrow .spk')) break;
+   await tap.click('[data-next]'); await tap.waitForTimeout(90); }
+ await tap.evaluate(()=>window.__says=0);
+ await tap.click('.vrow .spk'); await tap.waitForTimeout(150);
+ const deckTaps = await tap.evaluate(()=>window.__says);
+ ok('one tap = one utterance after paging a deck (got '+deckTaps+')', deckTaps===1);
+ await tap.close();
+
  ok('no JS errors', errs.length===0);
  if (errs.length) console.log('  '+errs.join('\n  '));
  await b.close(); srv.close();

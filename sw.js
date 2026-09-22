@@ -12,7 +12,7 @@
    ========================================================================== */
 'use strict';
 
-var CACHE = 'deutschlab-v1';
+var CACHE = 'deutschlab-v2';   // bumped: new palette, fonts and icons
 
 var PRECACHE = [
   './',

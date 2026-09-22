@@ -18,6 +18,7 @@ No build step, no framework, no dependencies. Double-click `index.html`.
 | **452 words** | each with an example sentence, audio and a Forvo link |
 | **231 exercises** | multiple choice, gap fill, sentence building, listening, translating, matching — 172 in the practice sets, 59 inside the lessons |
 | **70 decoder entries** | slang, comment abbreviations, filler words, 2026 youth slang |
+| **Dark by default** | sky-blue accent, Bricolage Grotesque headings, Manrope text |
 | **Drill** | Leitner boxes — cards come back when they're due, not before |
 
 One unit takes about 35–40 minutes: lesson, exercises, words.
@@ -108,7 +109,9 @@ In the drill: `space` to flip, `1` / `2` / `3` to grade.
 ### Pronunciation — two sources, kept separate
 
 - **▶︎** uses your device's German voice. Instant, offline, but synthetic.
-  If your device has none, the site says so and you install one in your system settings.
+  If nothing plays, open Settings → **Test the sound**: it tells you whether the
+  browser has speech at all, how many German voices it found, and whether the
+  test utterance actually came back.
 - **🗣** opens [Forvo](https://forvo.com), where actual people say the word.
   For anything where the melody matters, use this one.
 
