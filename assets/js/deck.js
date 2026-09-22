@@ -16,7 +16,7 @@
   }
   function note(n, kind) {
     if (!n) return '';
-    return '<div class="note ' + (kind || '') + '"><b>' + (kind === 'warn' ? 'Achtung' : kind === 'win' ? 'Trick' : 'Merk dir') + ':</b> ' + U.rich(n) + '</div>';
+    return '<div class="note ' + (kind || '') + '"><b>' + (kind === 'warn' ? 'Careful' : kind === 'win' ? 'Shortcut' : 'Remember') + ':</b> ' + U.rich(n) + '</div>';
   }
   function genderClass(de) {
     var a = U.article(de);
@@ -41,21 +41,21 @@
       var de = it[0], en = it[1], ex = it[2], exEn = it[3];
       var spoken = it[4] || de;
       return '<div class="vrow">' +
-        '<button class="spk" data-say="' + U.esc(spoken) + '" aria-label="Anhören">▶︎</button>' +
+        '<button class="spk" data-say="' + U.esc(spoken) + '" aria-label="Play">▶︎</button>' +
         '<div class="wb">' +
         '<div class="de ' + genderClass(de) + '">' + U.esc(de) + '</div>' +
         '<div class="en">' + U.esc(en) + '</div>' +
         (ex ? '<div class="ex">' + U.esc(ex) + (exEn ? '<em>' + U.esc(exEn) + '</em>' : '') + '</div>' : '') +
         '</div>' +
-        '<a class="forvo" href="' + DE.audio.forvo(de) + '" target="_blank" rel="noopener" title="Echte Muttersprachler auf Forvo">🗣</a>' +
+        '<a class="forvo" href="' + DE.audio.forvo(de) + '" target="_blank" rel="noopener" title="Real native speakers on Forvo">🗣</a>' +
         '</div>';
     }).join('');
     var legend = '<div class="btn-row small muted" style="margin-top:12px;gap:14px">' +
       '<span><i class="dot der"></i> der</span><span><i class="dot die"></i> die</span>' +
-      '<span><i class="dot das"></i> das</span><span>🗣 = echte Stimmen (Forvo)</span></div>';
+      '<span><i class="dot das"></i> das</span><span>🗣 = real speakers (Forvo)</span></div>';
     var all = s.items.map(function (i) { return i[0]; }).join(', ');
     return '<div>' + head(s) +
-      '<div class="btn-row" style="margin-top:14px"><button class="btn btn-ghost btn-sm" data-say="' + U.esc(all) + '">▶︎ Alle anhören</button></div>' +
+      '<div class="btn-row" style="margin-top:14px"><button class="btn btn-ghost btn-sm" data-say="' + U.esc(all) + '">▶︎ Play all</button></div>' +
       '<div class="vlist">' + rows + '</div>' + legend + note(s.note, s.noteKind) + '</div>';
   };
 
@@ -64,14 +64,14 @@
     var lines = s.lines.map(function (l) {
       return '<div class="dline"><div class="who">' + U.esc(l[0].slice(0, 2)) + '</div>' +
         '<div class="txt"><div class="de">' + U.esc(l[1]) + '</div><div class="en">' + U.esc(l[2] || '') + '</div></div>' +
-        '<button class="pl" data-say="' + U.esc(l[1]) + '" aria-label="Anhören">▶︎</button></div>';
+        '<button class="pl" data-say="' + U.esc(l[1]) + '" aria-label="Play">▶︎</button></div>';
     }).join('');
     var whole = s.lines.map(function (l) { return l[1]; }).join(' … ');
     return '<div>' + head(s) +
       (s.setting ? '<div class="setting">📍 ' + U.rich(s.setting) + '</div>' : '') +
       '<div class="btn-row" style="margin-top:12px">' +
-      '<button class="btn btn-ghost btn-sm" data-say="' + U.esc(whole) + '">▶︎ Ganzer Dialog</button>' +
-      '<button class="btn btn-ghost btn-sm" data-toggle-en>👁 Übersetzung</button></div>' +
+      '<button class="btn btn-ghost btn-sm" data-say="' + U.esc(whole) + '">▶︎ Play whole dialogue</button>' +
+      '<button class="btn btn-ghost btn-sm" data-toggle-en>👁 Translation</button></div>' +
       '<div class="dlg">' + lines + '</div>' + note(s.note, s.noteKind) + '</div>';
   };
 
@@ -90,7 +90,7 @@
     }
     var ex = (s.examples || []).map(function (e) {
       return '<div class="ex-pair"><b>' + U.rich(e[0]) + '</b><i>' + U.esc(e[1] || '') + '</i>' +
-        '<button class="pl" data-say="' + U.esc(String(e[0]).replace(/[*_`]/g, '')) + '" style="align-self:flex-start;margin-top:4px;font-size:12px;opacity:.6">▶︎ hören</button></div>';
+        '<button class="pl" data-say="' + U.esc(String(e[0]).replace(/[*_`]/g, '')) + '" style="align-self:flex-start;margin-top:4px;font-size:12px;opacity:.6">▶︎ play</button></div>';
     }).join('');
     return '<div>' + head(s) +
       '<div class="gbox">' + body + table + '</div>' + ex +
@@ -107,8 +107,8 @@
     }).join('');
     return '<div>' +
       '<div class="street">' +
-      '<div class="kicker" style="color:var(--pnk)">Straßendeutsch · so redet TikTok</div>' +
-      '<h3>' + U.rich(s.title || 'Wie man es wirklich sagt') + '</h3>' +
+      '<div class="kicker" style="color:var(--pnk)">Street German · how TikTok actually talks</div>' +
+      '<h3>' + U.rich(s.title || 'How people actually say it') + '</h3>' +
       (s.lead ? '<p style="color:var(--ink-2);font-size:15px;margin:8px 0 0">' + U.rich(s.lead) + '</p>' : '') +
       '<div class="slist">' + items + '</div>' +
       '</div>' + note(s.note, s.noteKind || 'warn') + '</div>';
@@ -156,15 +156,15 @@
     var root = U.el('div', 'deck');
     root.innerHTML =
       '<div class="deck-top">' +
-      '<button class="icon-btn" data-exit aria-label="Schließen">✕</button>' +
+      '<button class="icon-btn" data-exit aria-label="Close">✕</button>' +
       '<div class="ttl">' + U.esc(unit.num + '. ' + unit.title) + '</div>' +
       '<div class="count"></div></div>' +
       '<div class="deck-prog"><i></i></div>' +
       '<div class="deck-stage"><div class="slide" data-stage></div></div>' +
       '<div class="deck-bottom">' +
-      '<button class="btn btn-ghost" data-prev>← Zurück</button>' +
-      '<div class="deck-hint">← → zum Blättern · Esc zum Schließen</div>' +
-      '<button class="btn btn-pri" data-next>Weiter →</button>' +
+      '<button class="btn btn-ghost" data-prev>← Back</button>' +
+      '<div class="deck-hint">← → to flip · Esc to close</div>' +
+      '<button class="btn btn-pri" data-next>Next →</button>' +
       '</div>';
     document.body.appendChild(root);
     document.body.style.overflow = 'hidden';
@@ -185,7 +185,7 @@
       prog.style.width = ((idx + 1) / unit.slides.length * 100) + '%';
       root.querySelector('[data-prev]').disabled = idx === 0;
       root.querySelector('[data-next]').textContent =
-        idx === unit.slides.length - 1 ? 'Fertig ✓' : 'Weiter →';
+        idx === unit.slides.length - 1 ? 'Done ✓' : 'Next →';
 
       DE.audio.bind(stage);
       wireExtras(s);
@@ -253,14 +253,14 @@
             onDone: function (ok) {
               if (ok) { correct++; DE.addXp(2); }
               if (j < s.ex.length - 1) {
-                var b = U.el('button', 'btn btn-pri btn-sm', 'Nächste Aufgabe →');
+                var b = U.el('button', 'btn btn-pri btn-sm', 'Next question →');
                 b.style.marginTop = '12px';
                 b.addEventListener('click', function () { j++; run(); });
                 host.querySelector('.ex').appendChild(b);
               } else {
                 host.querySelector('.ex').insertAdjacentHTML('beforeend',
-                  '<div class="note win" style="margin-top:12px"><b>Runde fertig:</b> ' +
-                  correct + ' / ' + s.ex.length + ' richtig. Weiter mit der Taste unten.</div>');
+                  '<div class="note win" style="margin-top:12px"><b>Round done:</b> ' +
+                  correct + ' / ' + s.ex.length + ' right. Carry on with the button below.</div>');
               }
             }
           });
@@ -278,7 +278,7 @@
     function next() {
       if (idx === unit.slides.length - 1) {
         if (!st.deck.done) { st.deck.done = true; DE.addXp(20); DE.save(); }
-        DE.toast('Lektion durch! +20 ⚡');
+        DE.toast('Lesson complete! +20 ⚡');
         close();
         DE.go('#/unit/' + unit.id);
         return;

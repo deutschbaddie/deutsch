@@ -1,35 +1,35 @@
-/* Einheit 10 — Modalverben und Freizeit */
+/* Unit 10 — Modal verbs */
 (function () {
   window.DE.registerUnit({
     id: 'a1-10', level: 'A1', num: 10, minutes: 40,
-    title: 'Können, müssen, wollen',
-    subtitle: 'Modalverben · Freizeit und Hobbys · sich verabreden',
+    title: 'Can, must, want',
+    subtitle: 'Modal verbs · the sentence bracket · free time · making plans',
     can: [
-      'Du kannst sagen, was du kannst, musst, willst und darfst.',
-      'Du beherrschst die Satzklammer: Modalverb vorn, Infinitiv ans Ende.',
-      'Du kannst dich verabreden und absagen.',
-      'Du kannst über deine Hobbys sprechen.'
+      'Say what you can, must, want and are allowed to do.',
+      'Handle the sentence bracket: modal verb second, infinitive at the end.',
+      'Make plans and cancel them.',
+      'Talk about your hobbies.'
     ],
     slides: [
-      { t: 'goal', kicker: 'Einheit 10', title: 'Sechs Verben, die alles vervielfachen',
-        lead: 'Modalverben sind der größte Hebel im A1. Mit ihnen wird aus jedem Verb, das du kennst, sofort ein Dutzend neue Sätze.',
+      { t: 'goal', kicker: 'Unit 10', title: 'Six verbs that multiply everything',
+        lead: 'Modal verbs are the biggest single lever in A1. With them, every verb you already know turns into a dozen new sentences.',
         points: [
           '*können, müssen, wollen, möchten, dürfen, sollen*.',
-          'Die Satzklammer: Modalverb an Position 2, Infinitiv ganz ans Ende.',
-          'Warum *ich* und *er* bei Modalverben identisch sind.',
-          'Verabreden, zusagen, absagen.'
+          'The sentence bracket: modal verb in slot two, infinitive right at the end.',
+          'Why *ich* and *er* are identical with modal verbs.',
+          'Making plans, saying yes, saying no.'
         ] },
 
-      { t: 'grammar', kicker: 'Die Kernidee', title: 'Die Satzklammer',
-        body: 'Ein Modalverb kommt nie allein. Es braucht ein zweites Verb — und das steht im *Infinitiv ganz am Satzende*.\nDas ist dieselbe Logik wie bei den trennbaren Verben: Deutsch spannt eine Klammer auf und schließt sie erst zum Schluss.',
+      { t: 'grammar', kicker: 'The core idea', title: 'The sentence bracket',
+        body: 'A modal verb never turns up alone. It needs a second verb — and that one sits *in the infinitive at the very end of the sentence*.\nIt is the same logic as separable verbs: German opens a bracket and only closes it at the end.',
         table: {
-          head: ['Position 1', 'Modalverb', 'Mitte', 'Ende (Infinitiv)'],
+          head: ['Slot 1', 'Modal verb', 'Middle', 'End (infinitive)'],
           rows: [
-            ['Ich', '*kann*', 'ein bisschen Deutsch', '*sprechen*.'],
-            ['Ich', '*muss*', 'morgen früh', '*aufstehen*.'],
-            ['Wir', '*wollen*', 'heute Abend ins Kino', '*gehen*.'],
-            ['*Kannst*', 'du', 'mir kurz', '*helfen*?'],
-            ['Heute', '*darf*', 'ich nicht', '*mitkommen*.']
+            ['Ich', '*kann*', 'ein bisschen Deutsch', '*sprechen*. — I can speak a bit of German.'],
+            ['Ich', '*muss*', 'morgen früh', '*aufstehen*. — I have to get up early tomorrow.'],
+            ['Wir', '*wollen*', 'heute Abend ins Kino', '*gehen*. — We want to go to the cinema tonight.'],
+            ['*Kannst*', 'du', 'mir kurz', '*helfen*? — Can you help me a second?'],
+            ['Heute', '*darf*', 'ich nicht', '*mitkommen*. — Today I’m not allowed to come along.']
           ]
         },
         examples: [
@@ -37,12 +37,13 @@
           ['Wir *müssen* jetzt *los*.', 'We have to go now.'],
           ['*Willst* du was *trinken*?', 'Do you want something to drink?']
         ],
-        note: 'Je länger der Satz, desto weiter hinten das zweite Verb. Deshalb musst du im Deutschen bis zum Ende zuhören, bevor du weißt, was passiert.', noteKind: 'warn' },
+        note: 'The longer the sentence, the further back the second verb. This is why you have to listen to the end of a German sentence before you know what is happening.',
+        noteKind: 'warn' },
 
-      { t: 'grammar', kicker: 'Grammatik', title: 'Die sechs Modalverben',
-        body: 'Alle sechs folgen demselben Muster: *ich* und *er/sie/es* sind identisch und haben keine Endung. Im Singular wechselt außerdem oft der Vokal.',
+      { t: 'grammar', kicker: 'Grammar', title: 'The six modal verbs',
+        body: 'All six follow the same pattern: *ich* and *er/sie/es* are identical and take no ending. In the singular the vowel often changes too.',
         table: {
-          head: ['', 'können', 'müssen', 'wollen', 'dürfen', 'sollen', 'möchten'],
+          head: ['', 'können (can)', 'müssen (must)', 'wollen (want)', 'dürfen (may)', 'sollen (should)', 'möchten (would like)'],
           rows: [
             ['ich', 'kann', 'muss', 'will', 'darf', 'soll', 'möchte'],
             ['du', 'kannst', 'musst', 'willst', 'darfst', 'sollst', 'möchtest'],
@@ -57,19 +58,19 @@
           ['Sie muss arbeiten.', 'She has to work.'],
           ['Er will nicht.', "He doesn't want to."]
         ],
-        note: '„ich kann“ und „er kann“ — kein *-t*, keine Endung. Wer „er kannt“ sagt, verrät sich sofort.' },
+        note: '"ich kann" and "er kann" — no *-t*, no ending at all. Say "er kannt" and you give yourself away instantly.' },
 
-      { t: 'grammar', kicker: 'Bedeutung', title: 'Welches Modalverb wofür?',
-        body: 'Die Bedeutungen überschneiden sich weniger, als man denkt. Vor allem *müssen nicht* und *dürfen nicht* sind nicht dasselbe.',
+      { t: 'grammar', kicker: 'Meaning', title: 'Which modal verb for what?',
+        body: 'The meanings overlap less than you would think. In particular, *müssen nicht* and *dürfen nicht* are not the same thing at all.',
         table: {
-          head: ['Verb', 'Bedeutung', 'Beispiel'],
+          head: ['Verb', 'Meaning', 'Example'],
           rows: [
-            ['*können*', 'Fähigkeit, Möglichkeit', 'Ich kann kochen.'],
-            ['*müssen*', 'Zwang, Notwendigkeit', 'Ich muss arbeiten.'],
-            ['*wollen*', 'starker Wille', 'Ich will das nicht.'],
-            ['*möchten*', 'höflicher Wunsch', 'Ich möchte einen Kaffee.'],
-            ['*dürfen*', 'Erlaubnis', 'Darf ich hier rauchen?'],
-            ['*sollen*', 'Empfehlung, fremder Wunsch', 'Du sollst deine Mutter anrufen.']
+            ['*können*', 'ability, possibility', 'Ich kann kochen. — I can cook.'],
+            ['*müssen*', 'obligation, necessity', 'Ich muss arbeiten. — I have to work.'],
+            ['*wollen*', 'strong intention', 'Ich will das nicht. — I don’t want that.'],
+            ['*möchten*', 'polite wish', 'Ich möchte einen Kaffee. — I’d like a coffee.'],
+            ['*dürfen*', 'permission', 'Darf ich hier rauchen? — May I smoke here?'],
+            ['*sollen*', 'advice, someone else’s wish', 'Du sollst deine Mutter anrufen. — You’re meant to call your mother.']
           ]
         },
         examples: [
@@ -77,9 +78,10 @@
           ['Du *darfst nicht* kommen.', "You're not allowed to come. (forbidden)"],
           ['*Soll* ich dir helfen?', 'Shall I help you?']
         ],
-        note: '*Du musst nicht* = musst du nicht. *Du darfst nicht* = ist verboten. Diese Verwechslung kann richtig peinlich werden.', noteKind: 'warn' },
+        note: '*Du musst nicht* = you don’t have to. *Du darfst nicht* = you are forbidden. Mixing those up can get genuinely awkward.',
+        noteKind: 'warn' },
 
-      { t: 'vocab', kicker: 'Wortschatz', title: 'Freizeit',
+      { t: 'vocab', kicker: 'Vocabulary', title: 'Free time',
         items: [
           ['die Freizeit', 'free time', 'Was machst du in deiner Freizeit?', 'What do you do in your free time?'],
           ['das Hobby', 'hobby', 'Hast du ein Hobby?', 'Do you have a hobby?'],
@@ -100,74 +102,75 @@
           ['gern', 'gladly — turns any verb into "like doing"', 'Ich koche gern.', 'I like cooking.'],
           ['lieber', 'rather, prefer', 'Ich gehe lieber ins Kino.', "I'd rather go to the cinema."]
         ],
-        note: '*gern* ist der einfachste Trick im A1: Verb + gern = „I like doing X“. Ich lese gern. Ich koche gern. Ich zocke gern.',
+        note: '*gern* is the easiest trick in A1: verb + gern = "I like doing X". Ich lese gern. Ich koche gern. Ich zocke gern.',
         noteKind: 'win' },
 
-      { t: 'dialog', kicker: 'Dialog', title: 'Verabreden und absagen',
-        setting: 'Chat zwischen zwei Freunden.',
+      { t: 'dialog', kicker: 'Dialogue', title: 'Making plans, then cancelling',
+        setting: 'Two friends chatting.',
         lines: [
           ['Jonas', 'Ey, willst du heute Abend was machen?', 'Hey, do you want to do something tonight?'],
           ['Emerson', 'Kann sein. Was denn?', 'Maybe. What?'],
-          ['Jonas', 'Wir wollen ins Kino. Fängt um acht an.', "We want to go to the cinema. Starts at eight."],
-          ['Emerson', 'Hm, ich muss aber morgen früh raus.', "Hm, but I have to get up early tomorrow."],
+          ['Jonas', 'Wir wollen ins Kino. Fängt um acht an.', 'We want to go to the cinema. Starts at eight.'],
+          ['Emerson', 'Hm, ich muss aber morgen früh raus.', 'Hm, but I have to be up early tomorrow.'],
           ['Jonas', 'Komm schon, du kannst doch danach schlafen.', 'Come on, you can sleep afterwards.'],
           ['Emerson', 'Okay, aber ich will nicht so spät nach Hause.', "Okay, but I don't want to be home too late."],
-          ['Jonas', 'Passt. Sollen wir uns um halb acht treffen?', "Fine. Shall we meet at seven thirty?"],
-          ['Emerson', 'Ja. — Ach Mist, ich muss doch absagen. Mein Chef hat gerade geschrieben.', "Yeah. — Oh damn, I have to cancel after all. My boss just messaged."],
+          ['Jonas', 'Passt. Sollen wir uns um halb acht treffen?', 'Fine. Shall we meet at seven thirty?'],
+          ['Emerson', 'Ja. — Ach Mist, ich muss doch absagen. Mein Chef hat gerade geschrieben.',
+            'Yeah. — Oh damn, I have to cancel after all. My boss just messaged.'],
           ['Jonas', 'Schade. Dann nächste Woche?', 'Shame. Next week then?'],
           ['Emerson', 'Auf jeden Fall.', 'Definitely.']
         ],
-        note: '*Auf jeden Fall* = definitely. Einer der nützlichsten Ausdrücke überhaupt — Zustimmung ohne Details.' },
+        note: '*Auf jeden Fall* = definitely. One of the most useful phrases there is — agreement without committing to detail.' },
 
-      { t: 'street', title: 'Verabreden, wie es wirklich läuft',
+      { t: 'street', title: 'How plans actually get made',
         items: [
-          ['Bock auf was?', 'Up for something?', 'Die häufigste Einladung unter jungen Leuten.'],
-          ['Lass mal treffen', "Let's meet up", '*lass* + Infinitiv = let’s. Ohne „uns“ in der Umgangssprache.'],
-          ['Ich kann nicht, muss arbeiten', "Can't, got work", 'Kurz, ohne Entschuldigungsroman. Völlig okay.'],
-          ['Ich meld mich', "I'll get in touch", 'Sehr häufig — und oft unverbindlich gemeint.'],
-          ['Auf jeden Fall / auf jeden', 'definitely', '„Auf jeden“ ist die gekürzte Form.'],
-          ['Mal gucken', "We'll see", 'Das deutsche Vielleicht-eher-nein.'],
-          ['Ich bin dabei', "I'm in", 'Klare Zusage.'],
-          ['Hab schon was vor', 'Already got plans', '*vorhaben* — trennbar.'],
-          ['Sorry, muss absagen', 'Sorry, have to cancel', 'Standardformel per Chat.']
+          ['Bock auf was?', 'Up for something?', 'The most common invitation among young people.'],
+          ['Lass mal treffen', "Let's meet up", '*lass* + infinitive = let\'s. The "uns" gets dropped in speech.'],
+          ['Ich kann nicht, muss arbeiten', "Can't, got work", 'Short, no apology essay. Completely fine.'],
+          ['Ich meld mich', "I'll get in touch", 'Very common — and often non-committal.'],
+          ['Auf jeden Fall / auf jeden', 'definitely', '"Auf jeden" is the clipped version.'],
+          ['Mal gucken', "We'll see", 'The German maybe-meaning-probably-not.'],
+          ['Ich bin dabei', "I'm in", 'A clear yes.'],
+          ['Hab schon was vor', 'Already got plans', '*vorhaben* — separable.'],
+          ['Sorry, muss absagen', 'Sorry, have to cancel', 'The standard text message.']
         ] },
 
-      { t: 'pattern', kicker: 'Satzbaukasten', title: 'Die Klammer selbst bauen',
-        lead: 'Tipp ein Modalverb an und hör, wie *schlafen* immer am Ende bleibt.',
+      { t: 'pattern', kicker: 'Sentence builder', title: 'Build the bracket yourself',
+        lead: 'Tap a modal verb and watch *schlafen* stay stuck at the end.',
         frame: 'Ich {} heute lange schlafen.', enFrame: 'I {} sleep in today.',
-        slotLabel: 'Modalverb',
+        slotLabel: 'modal verb',
         swaps: [
           ['kann', 'can'], ['muss', 'have to'], ['will', 'want to'],
           ['darf', 'am allowed to'], ['möchte', 'would like to'], ['soll', 'am supposed to']
         ],
-        note: 'Das zweite Verb bewegt sich nie. Es steht am Ende und wartet. Das ist die ganze Satzklammer.' },
+        note: 'The second verb never moves. It sits at the end and waits. That is the whole sentence bracket.' },
 
-      { t: 'drill', kicker: 'Sofort üben', title: 'Modalverben-Runde',
+      { t: 'drill', kicker: 'Try it now', title: 'Modal verb round',
         ex: [
-          { k: 'order', en: 'I can speak a little German.', words: ['Ich', 'kann', 'ein', 'bisschen', 'Deutsch', 'sprechen'],
-            a: 'Ich kann ein bisschen Deutsch sprechen' },
+          { k: 'order', en: 'I can speak a little German.',
+            words: ['Ich', 'kann', 'ein', 'bisschen', 'Deutsch', 'sprechen'], a: 'Ich kann ein bisschen Deutsch sprechen' },
           { k: 'fill', q: 'Er ___ morgen arbeiten.', a: ['muss'], en: 'He has to work tomorrow.',
-            why: 'er → *muss*, keine Endung.' },
-          { k: 'choice', q: '„Du musst nicht kommen“ heißt:',
+            why: 'er → *muss*, no ending.' },
+          { k: 'choice', q: 'What does "Du musst nicht kommen" mean?',
             opts: ["You're not allowed to come.", "You don't have to come.", 'You must not come.'], a: 1,
-            why: '*müssen nicht* = es ist nicht nötig. Verbot wäre *dürfen nicht*.' },
+            why: '*müssen nicht* = it is not necessary. A ban would be *dürfen nicht*.' },
           { k: 'fill', q: '___ ich dir helfen? (shall)', a: ['Soll', 'soll'], en: 'Shall I help you?' },
-          { k: 'order', en: 'We want to go to the cinema tonight.', words: ['Wir', 'wollen', 'heute', 'Abend', 'ins', 'Kino', 'gehen'],
-            a: 'Wir wollen heute Abend ins Kino gehen' }
+          { k: 'order', en: 'We want to go to the cinema tonight.',
+            words: ['Wir', 'wollen', 'heute', 'Abend', 'ins', 'Kino', 'gehen'], a: 'Wir wollen heute Abend ins Kino gehen' }
         ] },
 
-      { t: 'culture', kicker: 'Kultur', title: 'Verabredungen sind Verabredungen',
-        body: 'In Deutschland heißt „ja“ bei einer Verabredung tatsächlich ja. Spontan absagen, weil man keine Lust hat, gilt als unhöflich — und zwar deutlich stärker als in den USA.\nDeshalb sagen Deutsche auch nicht aus Höflichkeit zu. „Mal gucken“ oder „Ich meld mich“ heißt meistens: eher nicht. Das ist keine Unehrlichkeit, das ist die Art, freundlich nein zu sagen.\nWer absagt, tut es früh und mit Grund. Ein simples „Sorry, ich schaff’s doch nicht, muss arbeiten“ reicht völlig. Kein langer Entschuldigungstext nötig.',
-        note: 'Das nützlichste Paar: *Ich bin dabei* (klares ja) und *Mal gucken* (freundliches nein).' },
+      { t: 'culture', kicker: 'Culture', title: 'A plan is a plan',
+        body: 'In Germany, "yes" to a plan genuinely means yes. Cancelling last minute because you can’t be bothered reads as rude — noticeably more so than in the US.\nWhich is why Germans also don’t say yes out of politeness. "Mal gucken" or "Ich meld mich" usually means: probably not. That is not dishonesty, that is the polite way of saying no.\nIf you do cancel, do it early and give a reason. A plain "Sorry, ich schaff’s doch nicht, muss arbeiten" is plenty. No long apology needed.',
+        note: 'The most useful pair: *Ich bin dabei* (a clear yes) and *Mal gucken* (a friendly no).' },
 
-      { t: 'recap', kicker: 'Einheit 10', title: 'Was jetzt sitzen sollte',
+      { t: 'recap', kicker: 'Unit 10', title: 'What should stick now',
         points: [
-          'Modalverb an Position 2, Infinitiv *ganz ans Ende*.',
-          'Bei Modalverben: *ich* = *er/sie/es*, beide ohne Endung.',
-          '*müssen nicht* = nicht nötig. *dürfen nicht* = verboten.',
-          '*sollen* = jemand anderes will das von dir.',
-          'Verb + *gern* = „I like doing X“.',
-          '*Auf jeden Fall* = ja. *Mal gucken* = eher nein.'
+          'Modal verb in slot two, infinitive *right at the end*.',
+          'With modal verbs *ich* = *er/sie/es*, both with no ending.',
+          '*müssen nicht* = not necessary. *dürfen nicht* = forbidden.',
+          '*sollen* = someone else wants this from you.',
+          'Verb + *gern* = "I like doing X".',
+          '*Auf jeden Fall* = yes. *Mal gucken* = probably not.'
         ] }
     ],
     quiz: [
@@ -175,12 +178,12 @@
       { k: 'fill', q: 'Sie ___ heute arbeiten. (has to)', a: ['muss'], en: 'She has to work today.' },
       { k: 'fill', q: '___ ich hier rauchen? (am I allowed)', a: ['Darf', 'darf'], en: 'May I smoke here?' },
       { k: 'fill', q: 'Wir ___ morgen ins Kino gehen. (want)', a: ['wollen'], en: 'We want to go to the cinema tomorrow.' },
-      { k: 'choice', q: 'Welcher Satz ist richtig?',
+      { k: 'choice', q: 'Which sentence is correct?',
         opts: ['Ich kann sprechen Deutsch.', 'Ich kann Deutsch sprechen.', 'Ich Deutsch sprechen kann.'], a: 1,
-        why: 'Infinitiv immer ans Satzende.' },
-      { k: 'choice', q: '„Hier darf man nicht parken“ heißt:',
-        opts: ['Parken ist nicht nötig.', 'Parken ist verboten.', 'Parken ist schwierig.'], a: 1 },
-      { k: 'choice', q: 'Was heißt „Ich zocke gern“?',
+        why: 'The infinitive always goes at the end.' },
+      { k: 'choice', q: 'What does "Hier darf man nicht parken" mean?',
+        opts: ['Parking is not necessary.', 'Parking is forbidden.', 'Parking is difficult.'], a: 1 },
+      { k: 'choice', q: 'What does "Ich zocke gern" mean?',
         opts: ['I like gaming.', 'I have to game.', 'I can game.'], a: 0, why: 'Verb + *gern* = like doing.' },
       { k: 'order', en: 'Can you help me?', words: ['Kannst', 'du', 'mir', 'helfen'], a: 'Kannst du mir helfen' },
       { k: 'order', en: 'I have to get up early tomorrow.', words: ['Ich', 'muss', 'morgen', 'früh', 'aufstehen'],
@@ -188,14 +191,14 @@
       { k: 'order', en: 'I would like to travel a lot.', words: ['Ich', 'möchte', 'viel', 'reisen'], a: 'Ich möchte viel reisen' },
       { k: 'listen', de: 'Ich kann heute leider nicht.', a: ['Ich kann heute leider nicht'], en: "I can't today, sorry." },
       { k: 'listen', de: 'Willst du was trinken?', a: ['Willst du was trinken'], en: 'Do you want something to drink?' },
-      { k: 'match', q: 'Modalverben', pairs: [
+      { k: 'match', q: 'Modal verbs', pairs: [
         ['können', 'to be able to'], ['dürfen', 'to be allowed to'], ['sollen', 'to be supposed to'], ['müssen', 'to have to']
       ] },
-      { k: 'match', q: 'Zusagen und absagen', pairs: [
+      { k: 'match', q: 'Yes and no', pairs: [
         ['Ich bin dabei', "I'm in"], ['Mal gucken', "we'll see (probably no)"],
         ['Hab schon was vor', 'already have plans'], ['Auf jeden Fall', 'definitely']
       ] },
-      { k: 'trans', en: 'I like reading.', a: ['Ich lese gern.', 'Ich lese gerne.'], hint: 'Verb + gern' }
+      { k: 'trans', en: 'I like reading.', a: ['Ich lese gern.', 'Ich lese gerne.'], hint: 'verb + gern' }
     ]
   });
 })();

@@ -194,6 +194,6 @@ let FAILED=0;
  ok('no JS errors', errs.length===0);
  if (errs.length) console.log('  '+errs.join('\n  '));
  await b.close(); srv.close();
- console.log(FAILED ? '\n'+FAILED+' Test(s) fehlgeschlagen.' : '\nAlles grün.');
+ console.log(FAILED ? '\n'+FAILED+' test(s) failed.' : '\nAll green.');
  process.exit(FAILED ? 1 : 0);
 })().catch(e=>{console.error('FATAL',e);process.exit(1);});

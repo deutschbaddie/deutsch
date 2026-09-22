@@ -1,133 +1,137 @@
 # Deutsch Lab
 
-Ein kompletter A1-Deutschkurs als Website. Präsentationen zum Durchklicken,
-echtes Alltagsdeutsch, Aussprache auf jedem Wort, Übungen mit Korrektur,
-ein Vokabeltrainer mit Spaced Repetition — und ein Decoder für das Deutsch,
-das auf TikTok und in Kommentaren vorkommt.
+A complete German A1 course as a website — **taught in English**. Slide
+lessons you click through, real everyday German, pronunciation on every word,
+exercises that mark themselves, a vocabulary drill with spaced repetition,
+and a decoder for the German that actually turns up on TikTok.
 
-Kein Build, kein Framework, keine Abhängigkeiten. Doppelklick auf
-`index.html` reicht.
+No build step, no framework, no dependencies. Double-click `index.html`.
 
 ---
 
-## Was drin ist
+## What's in it
 
 | | |
 |---|---|
-| **12 Einheiten** | der komplette A1-Stoff, von „Hallo“ bis Perfekt |
-| **140 Folien** | Wortschatz, Dialoge, Grammatik, Straßendeutsch, Kultur |
-| **461 Wörter** | alle mit Beispielsatz, Aussprache und Forvo-Link |
-| **172 Übungen** | Auswahl, Lücken, Satzbau, Hören, Übersetzen, Zuordnen |
-| **70 Decoder-Einträge** | Slang, Kommentar-Abkürzungen, Füllwörter, Jugendwort 2026 |
-| **Trainer** | Leitner-Boxen, Karten kommen wieder, wenn sie fällig sind |
+| **12 units** | the whole A1 syllabus, from "Hallo" to the past tense |
+| **140 slides** | vocabulary, dialogues, grammar, street German, culture |
+| **452 words** | each with an example sentence, audio and a Forvo link |
+| **231 exercises** | multiple choice, gap fill, sentence building, listening, translating, matching — 172 in the practice sets, 59 inside the lessons |
+| **70 decoder entries** | slang, comment abbreviations, filler words, 2026 youth slang |
+| **Drill** | Leitner boxes — cards come back when they're due, not before |
 
-Jede Einheit dauert etwa 35–40 Minuten: Präsentation, Übungen, Wörter.
+One unit takes about 35–40 minutes: lesson, exercises, words.
 
-### Die A1-Einheiten
+### The English/German split
 
-1. **Hallo! Wer bist du?** — Begrüßung, sich vorstellen, `sein`, W-Fragen, du/Sie
-2. **Zahlen, Uhrzeit, Termine** — Zahlen bis 1 Mio., Uhrzeit, `haben`, Kalender
-3. **Familie und Leute** — Possessivartikel, Berufe, Menschen beschreiben
-4. **der, die, das** — Artikel raten, Plural, **Akkusativ**, `kein` vs. `nicht`
-5. **Mein Tag** — **Verb an Position 2**, trennbare Verben, Tagesablauf
-6. **Essen und Trinken** — bestellen, zahlen, `mögen` vs. `möchten`
-7. **Einkaufen** — Preise, Kleidung, Farben, `dieser/welcher`
-8. **Wohnen** — Möbel, `es gibt`, **Dativ** nach Ortspräpositionen
-9. **Stadt, Wege, Bahn** — Wegbeschreibung, **Imperativ**, `zu`/`nach`/`in`
-10. **Können, müssen, wollen** — **Modalverben**, Satzklammer, sich verabreden
-11. **Körper, Gesundheit, Gefühle** — beim Arzt, **Dativpronomen** (`mir`, `dir`)
-12. **Was war gestern?** — **Perfekt**, `haben` oder `sein`, Wetter, erzählen
+The interface, every explanation and every note is in **English**. German
+appears only where German is the thing you're learning: vocabulary, dialogues,
+example sentences, and the grammar forms themselves. You never have to decode
+the teaching in order to get at the lesson.
+
+### The A1 units
+
+1. **Hello — who are you?** — greetings, introducing yourself, `sein`, question words, du vs. Sie
+2. **Numbers, time, making plans** — numbers to a million, telling the time, `haben`, the calendar
+3. **Family and people** — possessives, jobs, describing someone
+4. **der, die, das** — guessing gender, plurals, the **accusative**, `kein` vs. `nicht`
+5. **My day** — **verb in second position**, separable verbs, daily routine
+6. **Food and drink** — ordering, paying, `mögen` vs. `möchten`
+7. **Shopping** — prices, clothes, colours, `dieser/welcher`
+8. **Where you live** — furniture, `es gibt`, the **dative** after location prepositions
+9. **Town, directions, trains** — asking the way, the **imperative**, `zu`/`nach`/`in`
+10. **Can, must, want** — **modal verbs**, the sentence bracket, making plans
+11. **Body, health, feelings** — at the doctor, **dative pronouns** (`mir`, `dir`)
+12. **What happened yesterday?** — the **perfect tense**, `haben` or `sein`, weather
 
 ---
 
-## Starten
+## Running it
 
-**Am einfachsten:** `index.html` im Browser öffnen. Fertig.
+**Simplest:** open `index.html` in a browser. That's it.
 
-**Mit lokalem Server** (empfohlen, wenn du Inhalte bearbeitest):
+**With a local server** (better if you're editing content):
 
 ```bash
 python3 -m http.server 8000
-# dann http://localhost:8000 aufrufen
+# then open http://localhost:8000
 ```
 
-**Online stellen:** Repository-Einstellungen → Pages → Branch wählen →
-Ordner `/ (root)`. Die Seite ist eine statische Site, sie läuft dort ohne
-weitere Konfiguration.
+**Putting it online:** repository Settings → Pages → pick a branch → folder
+`/ (root)`. It's a static site, so it runs there with no further setup.
 
 ---
 
-## Wie du damit lernst
+## How to actually learn with it
 
-Die Reihenfolge ist Absicht — 35 Minuten am Tag:
+The order is deliberate — 35 minutes a day:
 
-1. **Trainer zuerst** (0–6 min) — fällige Karten wegarbeiten, solange der Kopf frisch ist.
-2. **Eine Präsentation** (6–24 min) — eine Einheit durchgehen, alles **laut** mitsprechen.
-3. **Übungen** (24–32 min) — unter 80 % heißt: Folien nochmal.
-4. **Decoder + ein Satz** (32–35 min) — drei Einträge lesen, dann einen echten Satz über deinen Tag schreiben.
+1. **Drill first** (0–6 min) — clear the cards that are due while your head is fresh.
+2. **One lesson** (6–24 min) — work through a unit. Say everything **out loud**.
+3. **Exercises** (24–32 min) — under 80% means go back through the slides.
+4. **Decoder + one sentence** (32–35 min) — read three decoder entries, then write one real sentence about your day.
 
-Tastatur in der Präsentation: `←` `→` blättern, `Esc` schließen.
-Im Trainer: `Leertaste` umdrehen, `1` / `2` / `3` bewerten.
+Keyboard in a lesson: `←` `→` to flip, `Esc` to close.
+In the drill: `space` to flip, `1` / `2` / `3` to grade.
 
-### Aussprache — zwei Quellen, klar getrennt
+### Pronunciation — two sources, kept separate
 
-- **▶︎** benutzt die deutsche Stimme deines Geräts. Sofort, offline, aber synthetisch.
-  Falls dein Gerät keine hat, sagt die Seite das und du installierst eine in den
-  Systemeinstellungen.
-- **🗣** öffnet [Forvo](https://forvo.com) — dort sprechen echte Menschen das Wort.
-  Für alles, wo dir die Melodie wichtig ist, nimm diesen Link.
+- **▶︎** uses your device's German voice. Instant, offline, but synthetic.
+  If your device has none, the site says so and you install one in your system settings.
+- **🗣** opens [Forvo](https://forvo.com), where actual people say the word.
+  For anything where the melody matters, use this one.
 
-Es wird nirgends KI-generiertes Deutsch als „echt“ ausgegeben. Jeder Dialog,
-jeder Slang-Eintrag und jede Kulturnotiz ist als das gekennzeichnet, was sie ist.
-
----
-
-## Fortschritt
-
-Alles liegt in `localStorage` deines Browsers — kein Konto, kein Server,
-keine Daten verlassen das Gerät. Das heißt auch: anderer Browser oder
-privates Fenster = anderer Fortschritt. „Fortschritt löschen“ steht unten
-auf der Seite **Ich**.
+Nothing AI-generated is passed off as "real German" anywhere. Every dialogue,
+slang entry and culture note is labelled for what it is.
 
 ---
 
-## Aufbau des Codes
+## Progress
+
+Everything lives in your browser's `localStorage` — no account, no server,
+no data leaves your device. Which also means: different browser or a private
+window = different progress. "Erase my progress" is at the bottom of the
+**Me** page.
+
+---
+
+## How the code is arranged
 
 ```
-index.html              lädt alles, sonst nichts
-assets/css/app.css      Design-Tokens, Dark/Light, responsive
+index.html              loads everything, does nothing else
+assets/css/app.css      design tokens, dark/light, responsive
 assets/js/
-  core.js               State, Speichern, Content-Registry, Router
-  audio.js              Sprachausgabe + Forvo
-  srs.js                Leitner-Boxen
-  exercises.js          ein Renderer pro Aufgabentyp + Quiz-Runner
-  deck.js               Präsentationsplayer, ein Renderer pro Folientyp
-  views.js              die Screens
-  app.js                Boot, Einstellungen
+  core.js               state, saving, content registry, router
+  audio.js              speech output + Forvo
+  srs.js                Leitner boxes
+  exercises.js          one renderer per exercise type + the quiz runner
+  deck.js               the slide player, one renderer per slide type
+  views.js              the screens
+  app.js                boot, settings
 content/
-  registry.js           Niveaus + Liste der Inhaltsdateien  ← hier erweitern
-  decoder.js            TikTok-/Slang-Datenbank
-  a1/u01.js … u12.js    je eine Einheit
-docs/CONTENT.md         wie man Einheiten schreibt (Formatreferenz)
-tests/smoke.js          Browsertest: alle Aufgabentypen, Quiz, Trainer, Inhalte
+  registry.js           levels + the list of content files  ← extend here
+  decoder.js            the TikTok/slang database
+  a1/u01.js … u12.js    one file per unit
+docs/CONTENT.md         how to write units (format reference)
+tests/smoke.js          browser test: every exercise type, quiz, drill, content
 ```
 
-Inhalt ist reine Daten. Die App weiß nichts über Deutsch — sie rendert
-Folientypen und Aufgabentypen. Deshalb ist A2/B1/B2 kein Umbau, sondern
-nur neue Dateien: siehe `docs/CONTENT.md`.
+Content is pure data. The app knows nothing about German — it renders slide
+types and exercise types. That's why A2/B1/B2 isn't a rebuild, just new files.
+See `docs/CONTENT.md`.
 
 ---
 
 ## Tests
 
 ```bash
-npm install     # nur playwright-core
+npm install     # just playwright-core
 npm test
 ```
 
-Der Test startet einen lokalen Server, fährt einen echten Chromium hoch und prüft:
-jeder Aufgabentyp bewertet richtig **und** falsch korrekt, der Quiz-Runner läuft
-bis zum Ergebnis durch, eine durchgeklickte Präsentation füllt den Trainer,
-Fortschritt überlebt einen Reload, es gibt keine JS-Fehler — und alle Inhalte
-sind strukturell sauber (bei `order`-Aufgaben etwa, dass die Wortkarten
-tatsächlich den Lösungssatz ergeben).
+The test starts a local server, launches a real Chromium and checks: every
+exercise type marks right **and** wrong answers correctly, the quiz runner
+reaches its result screen, clicking through a lesson fills the drill deck,
+progress survives a reload, there are no JS errors — and all content is
+structurally sound (for sentence-building questions, for instance, that the
+word tiles actually add up to the answer sentence).

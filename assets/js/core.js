@@ -219,7 +219,7 @@
       s.src = srcs[i];
       s.onload = function () { i++; onProgress(i / srcs.length); next(); };
       s.onerror = function () {
-        console.error('Konnte Inhalt nicht laden:', srcs[i]);
+        console.error('Could not load content file:', srcs[i]);
         i++; onProgress(i / srcs.length); next();
       };
       document.head.appendChild(s);

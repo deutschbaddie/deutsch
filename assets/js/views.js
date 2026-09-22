@@ -1,5 +1,7 @@
 /* ==========================================================================
    views.js — every screen in the app
+   The interface speaks English. German appears only where German is the
+   thing being learned.
    ========================================================================== */
 (function () {
   'use strict';
@@ -16,24 +18,25 @@
 
     var html = '';
     html += '<section class="hero">' +
-      '<div class="eyebrow">Dein Kurs · Niveau ' + openLevel + '</div>' +
-      '<h1>Guten Tag. Lass uns Deutsch machen.</h1>' +
-      '<p>' + units.length + ' Einheiten, ' + DE.allVocab().length + ' Wörter, Präsentationen mit Ton, ' +
-      'Straßendeutsch in jeder Einheit — und ein Decoder für das Deutsch, das dir auf TikTok begegnet.</p>' +
+      '<div class="eyebrow">Your course · Level ' + openLevel + '</div>' +
+      '<h1>Right. Let’s build some German.</h1>' +
+      '<p>' + units.length + ' units, ' + DE.allVocab().length + ' words, slide lessons with audio, ' +
+      'street German in every unit — and a decoder for the German you actually meet on TikTok. ' +
+      'Everything is explained in English; German is what you’re learning, not what you have to fight through.</p>' +
       '<div class="hero-row">' +
-      '<button class="btn btn-pri" data-continue>' + (done ? '▶︎ Weitermachen' : '▶︎ Einheit 1 starten') + '</button>' +
-      (dueCount ? '<a class="btn btn-ghost" href="#/trainer">🎯 ' + dueCount + ' Wörter fällig</a>' : '') +
-      '<a class="btn btn-ghost" href="#/decoder">📱 TikTok-Decoder</a>' +
+      '<button class="btn btn-pri" data-continue>' + (done ? '▶︎ Continue' : '▶︎ Start unit 1') + '</button>' +
+      (dueCount ? '<a class="btn btn-ghost" href="#/trainer">🎯 ' + dueCount + ' words due</a>' : '') +
+      '<a class="btn btn-ghost" href="#/decoder">📱 TikTok decoder</a>' +
       '</div></section>';
 
     html += '<div class="levels">' + DE.levels.map(function (l) {
       return '<button class="lvl ' + (l.id === openLevel ? 'on' : 'soon') + '" ' +
         (l.status === 'open' ? '' : 'disabled') + '>' + U.esc(l.id) +
-        '<small>' + (l.status === 'open' ? DE.levelUnits(l.id).length + ' Einheiten' : 'in Vorbereitung') +
+        '<small>' + (l.status === 'open' ? DE.levelUnits(l.id).length + ' units' : 'coming later') +
         '</small></button>';
     }).join('') + '</div>';
 
-    html += '<div class="sec-title">Einheiten <span>' + done + ' von ' + units.length + ' abgeschlossen</span></div>';
+    html += '<div class="sec-title">Units <span>' + done + ' of ' + units.length + ' finished</span></div>';
     html += '<div class="units">' + units.map(function (u) {
       var p = DE.unitProgress(u.id);
       var cls = p >= 0.99 ? 'done' : p > 0 ? 'started' : '';
@@ -43,9 +46,9 @@
         '<h3>' + U.esc(u.title) + '</h3>' +
         '<div class="de">' + U.esc(u.subtitle || '') + '</div>' +
         '<div class="unit-meta">' +
-        '<span class="tag">' + u.slides.length + ' Folien</span>' +
-        '<span class="tag">' + u.vocab.length + ' Wörter</span>' +
-        '<span class="tag">' + u.quiz.length + ' Aufgaben</span>' +
+        '<span class="tag">' + u.slides.length + ' slides</span>' +
+        '<span class="tag">' + u.vocab.length + ' words</span>' +
+        '<span class="tag">' + u.quiz.length + ' questions</span>' +
         '</div>' +
         '<div class="bar ' + (p >= 0.99 ? 'grn' : '') + '"><i style="width:' + pct(p) + '%"></i></div>' +
         '</div></button>';
@@ -53,10 +56,10 @@
 
     var soon = DE.levels.filter(function (l) { return l.status !== 'open'; });
     if (soon.length) {
-      html += '<div class="soonbox"><b>Danach:</b> ' + soon.map(function (l) {
+      html += '<div class="soonbox"><b>After that:</b> ' + soon.map(function (l) {
         return l.id + ' — ' + U.esc(l.blurb);
-      }).join(' · ') + '<br><span class="small">Die Struktur steht schon. Neue Niveaus sind reine Inhaltsdateien: ' +
-        '<code>content/a2/…</code> anlegen, in <code>content/registry.js</code> eintragen, fertig.</span></div>';
+      }).join(' · ') + '<br><span class="small">The structure is already here. A new level is just content files: ' +
+        'add <code>content/a2/…</code>, list it in <code>content/registry.js</code>, done.</span></div>';
     }
 
     app.innerHTML = html;
@@ -70,35 +73,37 @@
   /* =========================================================== unit ==== */
   DE.route('unit', function (app, params) {
     var u = DE.unit(params[0]);
-    if (!u) { app.innerHTML = '<div class="empty"><div class="e">🤷</div>Diese Einheit gibt es nicht.</div>'; return; }
+    if (!u) { app.innerHTML = '<div class="empty"><div class="e">🤷</div>No such unit.</div>'; return; }
     var st = DE.unitState(u.id);
     var p = DE.unitProgress(u.id);
     var resume = st.deck.slideIdx > 0 && !st.deck.done;
 
     app.innerHTML =
-      '<button class="btn btn-ghost btn-sm" data-back style="margin-bottom:16px">← Alle Einheiten</button>' +
+      '<button class="btn btn-ghost btn-sm" data-back style="margin-bottom:16px">← All units</button>' +
       '<section class="unit-hero">' +
-      '<div class="eyebrow">' + u.level + ' · Einheit ' + u.num + '</div>' +
+      '<div class="eyebrow">' + u.level + ' · Unit ' + u.num + '</div>' +
       '<h1>' + U.esc(u.title) + '</h1>' +
       '<div class="sub">' + U.esc(u.subtitle || '') + '</div>' +
       (u.can ? '<ul class="cando">' + u.can.map(function (c) { return '<li>' + U.esc(c) + '</li>'; }).join('') + '</ul>' : '') +
       '<div class="bar ' + (p >= 0.99 ? 'grn' : '') + '" style="margin-top:18px"><i style="width:' + pct(p) + '%"></i></div>' +
-      '<div class="small muted" style="margin-top:7px">' + pct(p) + '% geschafft · ca. ' + (u.minutes || 35) + ' Minuten</div>' +
+      '<div class="small muted" style="margin-top:7px">' + pct(p) + '% done · about ' + (u.minutes || 35) + ' minutes</div>' +
       '</section>' +
       '<div class="part-list">' +
       '<button class="part" data-deck>' +
-      '<div class="part-ico">🎬</div><div><b>' + (resume ? 'Präsentation fortsetzen' : st.deck.done ? 'Präsentation nochmal ansehen' : 'Präsentation starten') + '</b>' +
-      '<small>' + u.slides.length + ' Folien · Wortschatz, Dialog, Grammatik, Straßendeutsch' +
-      (resume ? ' · bei Folie ' + Math.min(st.deck.slideIdx + 1, u.slides.length) : '') + '</small></div>' +
+      '<div class="part-ico">🎬</div><div><b>' +
+      (resume ? 'Resume the lesson' : st.deck.done ? 'Watch the lesson again' : 'Start the lesson') + '</b>' +
+      '<small>' + u.slides.length + ' slides · words, dialogue, grammar, street German' +
+      (resume ? ' · you were on slide ' + Math.min(st.deck.slideIdx + 1, u.slides.length) : '') + '</small></div>' +
       '<div class="go">›</div></button>' +
       '<button class="part" data-quiz>' +
-      '<div class="part-ico">✍️</div><div><b>Übungen</b><small>' + u.quiz.length + ' Aufgaben' +
-      (st.quiz.best ? ' · Bestwert ' + st.quiz.best + '%' : '') + '</small></div><div class="go">›</div></button>' +
+      '<div class="part-ico">✍️</div><div><b>Practice</b><small>' + u.quiz.length + ' questions' +
+      (st.quiz.best ? ' · best so far ' + st.quiz.best + '%' : '') + '</small></div><div class="go">›</div></button>' +
       '<button class="part" data-drillvocab>' +
-      '<div class="part-ico">🎯</div><div><b>Nur die Wörter dieser Einheit</b><small>' + u.vocab.length + ' Karten, schnell durchgehen</small></div>' +
+      '<div class="part-ico">🎯</div><div><b>Just this unit’s words</b><small>' + u.vocab.length +
+      ' cards, quick run-through</small></div>' +
       '<div class="go">›</div></button>' +
       '</div>' +
-      (u.vocab.length ? '<div class="sec-title">Wortschatz der Einheit <span>' + u.vocab.length + ' Wörter</span></div>' +
+      (u.vocab.length ? '<div class="sec-title">Words in this unit <span>' + u.vocab.length + '</span></div>' +
         '<div class="glist">' + u.vocab.map(function (v) {
           return '<div class="grow"><button class="spk" data-say="' + U.esc(v.de) + '">▶︎</button>' +
             '<div class="de">' + U.esc(v.de) + '</div><div class="en">' + U.esc(v.en) + '</div></div>';
@@ -116,10 +121,10 @@
   /* =========================================================== quiz ==== */
   DE.route('quiz', function (app, params) {
     var u = DE.unit(params[0]);
-    if (!u || !u.quiz.length) { app.innerHTML = '<div class="empty"><div class="e">🤷</div>Keine Übungen gefunden.</div>'; return; }
+    if (!u || !u.quiz.length) { app.innerHTML = '<div class="empty"><div class="e">🤷</div>No questions here.</div>'; return; }
     app.innerHTML =
       '<button class="btn btn-ghost btn-sm" data-back style="margin-bottom:16px">← ' + U.esc(u.title) + '</button>' +
-      '<div class="page-head"><div class="eyebrow">Übungen · Einheit ' + u.num + '</div><h1>' + U.esc(u.title) + '</h1></div>' +
+      '<div class="page-head"><div class="eyebrow">Practice · Unit ' + u.num + '</div><h1>' + U.esc(u.title) + '</h1></div>' +
       '<div class="card" data-host></div>';
     app.querySelector('[data-back]').addEventListener('click', function () { DE.go('#/unit/' + u.id); });
     var host = app.querySelector('[data-host]');
@@ -130,7 +135,7 @@
         if (percent >= 80) st.quiz.done = true;
         DE.addXp(right * 3);
         DE.save();
-        var b = U.el('button', 'btn btn-pri', 'Zurück zur Einheit');
+        var b = U.el('button', 'btn btn-pri', 'Back to the unit');
         b.addEventListener('click', function () { DE.go('#/unit/' + u.id); });
         foot.appendChild(b);
       }
@@ -146,20 +151,23 @@
 
     if (!pool.length) {
       app.innerHTML =
-        '<div class="page-head"><div class="eyebrow">Trainer</div><h1>Nichts fällig. Sauber.</h1>' +
-        '<p>Alle Karten sitzen für heute. Neue Wörter kommen automatisch dazu, sobald du eine Wortschatz-Folie erreichst.</p></div>' +
-        '<div class="btn-row"><a class="btn btn-pri" href="#/">Nächste Einheit</a>' +
-        (knownN ? '<button class="btn btn-ghost" data-anyway>Trotzdem üben (' + knownN + ' Karten)</button>' : '') + '</div>' +
+        '<div class="page-head"><div class="eyebrow">Drill</div><h1>Nothing due. Good.</h1>' +
+        '<p>Every card has settled for today. New words join automatically as soon as you reach a ' +
+        'word slide in a lesson.</p></div>' +
+        '<div class="btn-row"><a class="btn btn-pri" href="#/">Next unit</a>' +
+        (knownN ? '<button class="btn btn-ghost" data-anyway>Drill anyway (' + knownN + ' cards)</button>' : '') + '</div>' +
         boxesHtml(counts);
       var a = app.querySelector('[data-anyway]');
-      if (a) a.addEventListener('click', function () { startTrainer(app, U.shuffle(DE.allVocab().filter(function (v) { return DE.srs.card(v.de); })), null); });
+      if (a) a.addEventListener('click', function () {
+        startTrainer(app, U.shuffle(DE.allVocab().filter(function (v) { return DE.srs.card(v.de); })), null);
+      });
       return;
     }
     startTrainer(app, U.shuffle(pool), scopeUnit);
   });
 
   function boxesHtml(counts) {
-    var labels = ['', 'neu/falsch', '1 Tag', '3 Tage', '1 Woche', '2+ Wochen', 'sitzt ✓'];
+    var labels = ['', 'new / got it wrong', 'due in 1 day', 'in 3 days', 'in a week', 'in 2+ weeks', 'it sticks ✓'];
     return '<div class="boxes">' + counts.map(function (n, i) {
       if (!i) return '';
       return '<span class="boxpill">' + labels[i] + ': <b>' + n + '</b></span>';
@@ -169,9 +177,9 @@
   function startTrainer(app, pool, scopeUnit) {
     var i = 0, revealed = false, right = 0;
     app.innerHTML =
-      '<div class="page-head"><div class="eyebrow">Trainer' + (scopeUnit ? ' · ' + U.esc(scopeUnit.title) : ' · fällige Karten') + '</div>' +
-      '<h1>Erst denken, dann umdrehen.</h1>' +
-      '<p>Sag die Bedeutung laut, bevor du aufdeckst. Laut. Wirklich.</p></div>' +
+      '<div class="page-head"><div class="eyebrow">Drill' + (scopeUnit ? ' · ' + U.esc(scopeUnit.title) : ' · cards due today') + '</div>' +
+      '<h1>Think first, then flip.</h1>' +
+      '<p>Say the meaning out loud before you turn the card over. Out loud. Actually.</p></div>' +
       '<div class="quiz-head"><div class="bar"><i style="width:0%"></i></div><div class="n"></div></div>' +
       '<div data-card></div>' +
       '<div data-ctrl></div>' +
@@ -192,10 +200,11 @@
         '<div class="fen" hidden data-en>' + U.esc(v.en) + '</div>' +
         (v.exDe ? '<div class="fex" hidden data-ex>' + U.esc(v.exDe) + '<i>' + U.esc(v.exEn || '') + '</i></div>' : '') +
         '<div class="btn-row" style="margin-top:18px">' +
-        '<button class="btn btn-ghost btn-sm" data-say="' + U.esc(v.de) + '">▶︎ hören</button>' +
-        '<a class="btn btn-ghost btn-sm" href="' + DE.audio.forvo(v.de) + '" target="_blank" rel="noopener">🗣 echte Stimme</a>' +
+        '<button class="btn btn-ghost btn-sm" data-say="' + U.esc(v.de) + '">▶︎ play</button>' +
+        '<a class="btn btn-ghost btn-sm" href="' + DE.audio.forvo(v.de) + '" target="_blank" rel="noopener">🗣 real voice</a>' +
         '</div></div>';
-      ctrl.innerHTML = '<div class="btn-row" style="margin-top:14px"><button class="btn btn-pri" data-flip style="flex:1">Umdrehen (Leertaste)</button></div>';
+      ctrl.innerHTML = '<div class="btn-row" style="margin-top:14px">' +
+        '<button class="btn btn-pri" data-flip style="flex:1">Flip (space)</button></div>';
       ctrl.querySelector('[data-flip]').addEventListener('click', flip);
       DE.audio.bind(cardHost);
     }
@@ -206,9 +215,9 @@
       var ex = cardHost.querySelector('[data-ex]'); if (ex) ex.hidden = false;
       ctrl.innerHTML =
         '<div class="grade">' +
-        '<button class="btn g-again" data-g="again">Nochmal<small>heute wieder</small></button>' +
-        '<button class="btn g-hard" data-g="hard">Schwer<small>morgen</small></button>' +
-        '<button class="btn g-easy" data-g="easy">Sitzt<small>später</small></button>' +
+        '<button class="btn g-again" data-g="again">Missed it<small>comes back today</small></button>' +
+        '<button class="btn g-hard" data-g="hard">Shaky<small>tomorrow</small></button>' +
+        '<button class="btn g-easy" data-g="easy">Got it<small>later on</small></button>' +
         '</div>';
       U.on(ctrl, '[data-g]', 'click', function (e, t) { grade(t.dataset.g); });
     }
@@ -222,9 +231,9 @@
       bar.style.width = '100%';
       cardHost.innerHTML =
         '<div class="result"><div class="big">' + right + '/' + pool.length + '</div>' +
-        '<h2>Runde durch.</h2><p>Die „Nochmal“-Karten kommen heute wieder. Der Rest ist eingeplant.</p></div>';
-      ctrl.innerHTML = '<div class="btn-row"><a class="btn btn-pri" href="#/">Zum Kurs</a>' +
-        '<button class="btn btn-ghost" data-again>↻ Nochmal</button></div>';
+        '<h2>Round done.</h2><p>The ones you missed come back today. The rest are scheduled.</p></div>';
+      ctrl.innerHTML = '<div class="btn-row"><a class="btn btn-pri" href="#/">Back to the course</a>' +
+        '<button class="btn btn-ghost" data-again>↻ Again</button></div>';
       ctrl.querySelector('[data-again]').addEventListener('click', function () {
         i = 0; right = 0; pool = U.shuffle(pool); draw();
       });
@@ -244,39 +253,39 @@
   /* ======================================================== decoder ==== */
   DE.route('decoder', function (app) {
     var data = DE.decoder || { groups: [], items: [] };
-    var active = 'alle', q = '';
+    var active = 'all', q = '';
 
     app.innerHTML =
-      '<div class="page-head"><div class="eyebrow">TikTok · Kommentare · Sprachnachrichten</div>' +
-      '<h1>Der Decoder</h1>' +
-      '<p>Das Deutsch aus den Kommentaren und aus dem Ton — die Wörter, die in keinem Lehrbuch stehen, ' +
-      'aber in jedem zweiten Video vorkommen. Mit einer ehrlichen Angabe, wo du das sagen kannst und wo besser nicht.</p></div>' +
-      '<input class="dsearch" placeholder="Suche: krass, hdf, Digga, ne?, 6-7 …" data-q>' +
+      '<div class="page-head"><div class="eyebrow">TikTok · comments · voice notes</div>' +
+      '<h1>The Decoder</h1>' +
+      '<p>The German in the comments and in the audio — the words no textbook prints, but that ' +
+      'turn up in every other video. Each one says plainly who you can say it to, and who you can’t.</p></div>' +
+      '<input class="dsearch" placeholder="Search: krass, hdf, Digga, ne?, 6-7 …" data-q>' +
       '<div class="dfilters" data-filters></div>' +
       '<div class="dgrid" data-grid></div>';
 
     var filters = app.querySelector('[data-filters]');
-    filters.innerHTML = ['alle'].concat(data.groups).map(function (g) {
-      return '<button class="chip' + (g === 'alle' ? ' gold' : '') + '" data-f="' + U.esc(g) + '">' + U.esc(g) + '</button>';
+    filters.innerHTML = ['all'].concat(data.groups).map(function (g) {
+      return '<button class="chip' + (g === 'all' ? ' gold' : '') + '" data-f="' + U.esc(g) + '">' + U.esc(g) + '</button>';
     }).join('');
 
     function draw() {
       var list = data.items.filter(function (it) {
-        if (active !== 'alle' && it.group !== active) return false;
+        if (active !== 'all' && it.group !== active) return false;
         if (!q) return true;
         var hay = (it.de + ' ' + it.en + ' ' + (it.use || '') + ' ' + (it.useEn || '') + ' ' + (it.lit || '')).toLowerCase();
         return hay.indexOf(q) > -1;
       });
       var grid = app.querySelector('[data-grid]');
-      if (!list.length) { grid.innerHTML = '<div class="empty"><div class="e">🔍</div>Nichts gefunden.</div>'; return; }
+      if (!list.length) { grid.innerHTML = '<div class="empty"><div class="e">🔍</div>Nothing found.</div>'; return; }
       grid.innerHTML = list.map(function (it) {
         var risk = it.risk || 'ok';
-        var riskLabel = risk === 'ok' ? 'überall ok' : risk === 'mid' ? 'nur unter Freunden' : 'heikel / vulgär';
+        var riskLabel = risk === 'ok' ? 'safe anywhere' : risk === 'mid' ? 'friends only' : 'understand, don’t say';
         return '<div class="dcard">' +
           '<div class="top"><div class="de">' + U.esc(it.de) + '</div>' +
           '<button class="spk" data-say="' + U.esc(it.say || it.de) + '">▶︎</button></div>' +
           '<div class="en">' + U.esc(it.en) + '</div>' +
-          (it.lit ? '<div class="small muted" style="margin-top:4px">wörtlich: ' + U.esc(it.lit) + '</div>' : '') +
+          (it.lit ? '<div class="small muted" style="margin-top:4px">literally: ' + U.esc(it.lit) + '</div>' : '') +
           (it.use ? '<div class="use">„' + U.esc(it.use) + '“<i>' + U.esc(it.useEn || '') + '</i></div>' : '') +
           '<div class="meta"><span class="lvl-pill ' + risk + '">' + riskLabel + '</span>' +
           '<span class="chip">' + U.esc(it.group) + '</span></div></div>';
@@ -294,29 +303,30 @@
     draw();
   });
 
-  /* ======================================================== glossar ==== */
+  /* ======================================================== glossary ==== */
   DE.route('glossar', function (app) {
     var all = DE.allVocab().slice().sort(function (a, b) {
       return U.bare(a.de).localeCompare(U.bare(b.de), 'de');
     });
     app.innerHTML =
-      '<div class="page-head"><div class="eyebrow">Alle Wörter des Kurses</div><h1>Glossar</h1>' +
-      '<p>Jedes Wort aus jeder Einheit, alphabetisch. Farbe = Artikel.</p></div>' +
-      '<div class="gsearch-wrap"><input class="dsearch" placeholder="Wort suchen — deutsch oder englisch…" data-q></div>' +
+      '<div class="page-head"><div class="eyebrow">Every word in the course</div><h1>Word list</h1>' +
+      '<p>All of it, A to Z. The colour is the gender: ' +
+      '<span class="g-der">der</span> · <span class="g-die">die</span> · <span class="g-das">das</span>.</p></div>' +
+      '<div class="gsearch-wrap"><input class="dsearch" placeholder="Search — German or English…" data-q></div>' +
       '<div class="gcount" data-count></div><div class="glist" data-list></div>';
     function draw(q) {
       var list = all.filter(function (v) {
         if (!q) return true;
         return (v.de + ' ' + v.en).toLowerCase().indexOf(q) > -1;
       });
-      app.querySelector('[data-count]').textContent = list.length + ' Wörter';
+      app.querySelector('[data-count]').textContent = list.length + ' words';
       app.querySelector('[data-list]').innerHTML = list.map(function (v) {
         var a = U.article(v.de);
         var cls = a === 'der' ? 'g-der' : a === 'die' ? 'g-die' : a === 'das' ? 'g-das' : '';
         return '<div class="grow"><button class="spk" data-say="' + U.esc(v.de) + '">▶︎</button>' +
           '<div class="de ' + cls + '">' + U.esc(v.de) + '</div>' +
           '<div class="en">' + U.esc(v.en) + '</div>' +
-          '<div class="u">E' + U.esc(String(v.unit).replace(/^a1-0?/, '')) + '</div></div>';
+          '<div class="u">U' + U.esc(String(v.unit).replace(/^a1-0?/, '')) + '</div></div>';
       }).join('');
       DE.audio.bind(app);
     }
@@ -324,7 +334,7 @@
     draw('');
   });
 
-  /* ============================================================ ich ==== */
+  /* ============================================================= me ==== */
   DE.route('ich', function (app) {
     var S = DE.state;
     var units = DE.units;
@@ -335,38 +345,38 @@
     var days = Object.keys(S.days).length;
 
     app.innerHTML =
-      '<div class="page-head"><div class="eyebrow">Dein Stand</div><h1>Wo du stehst</h1>' +
-      '<p>Keine geschönten Zahlen — das hier ist, was du tatsächlich angefasst hast.</p></div>' +
+      '<div class="page-head"><div class="eyebrow">Where you actually are</div><h1>Your progress</h1>' +
+      '<p>No flattering numbers — this is what you have genuinely touched.</p></div>' +
       '<div class="stats-grid">' +
-      '<div class="sbox"><div class="n">' + S.streak + '</div><div class="l">Tage in Folge 🔥</div></div>' +
-      '<div class="sbox"><div class="n">' + DE.srs.known().length + '</div><div class="l">Wörter angefangen</div></div>' +
-      '<div class="sbox"><div class="n">' + solid + '</div><div class="l">Wörter sitzen</div></div>' +
-      '<div class="sbox"><div class="n">' + doneN + '/' + units.length + '</div><div class="l">Einheiten fertig</div></div>' +
-      '<div class="sbox"><div class="n">' + S.xp + '</div><div class="l">Punkte ⚡</div></div>' +
-      '<div class="sbox"><div class="n">' + days + '</div><div class="l">aktive Tage</div></div>' +
+      '<div class="sbox"><div class="n">' + S.streak + '</div><div class="l">day streak 🔥</div></div>' +
+      '<div class="sbox"><div class="n">' + DE.srs.known().length + '</div><div class="l">words started</div></div>' +
+      '<div class="sbox"><div class="n">' + solid + '</div><div class="l">words that stick</div></div>' +
+      '<div class="sbox"><div class="n">' + doneN + '/' + units.length + '</div><div class="l">units finished</div></div>' +
+      '<div class="sbox"><div class="n">' + S.xp + '</div><div class="l">points ⚡</div></div>' +
+      '<div class="sbox"><div class="n">' + days + '</div><div class="l">active days</div></div>' +
       '</div>' +
       boxesHtml(counts) +
-      (weak.length ? '<div class="sec-title">Deine Wackelkandidaten <span>die, die du immer wieder verhaust</span></div>' +
+      (weak.length ? '<div class="sec-title">Your problem words <span>the ones you keep getting wrong</span></div>' +
         '<div class="glist">' + weak.map(function (v) {
           var c = DE.srs.card(v.de);
           return '<div class="grow"><button class="spk" data-say="' + U.esc(v.de) + '">▶︎</button>' +
             '<div class="de">' + U.esc(v.de) + '</div><div class="en">' + U.esc(v.en) + '</div>' +
-            '<div class="u">' + c.wrong + '× falsch</div></div>';
+            '<div class="u">missed ' + c.wrong + '×</div></div>';
         }).join('') + '</div>' : '') +
-      '<div class="sec-title">Dein Tag, 35 Minuten <span>die Reihenfolge ist Absicht</span></div>' +
+      '<div class="sec-title">Your 35 minutes <span>the order is deliberate</span></div>' +
       '<div class="plan">' +
-      plan('0–6', 'Trainer zuerst', 'Fällige Karten wegarbeiten, solange der Kopf frisch ist.') +
-      plan('6–24', 'Eine Präsentation', 'Eine Einheit durchgehen. Alles laut mitsprechen, nicht nur lesen.') +
-      plan('24–32', 'Übungen', 'Die Aufgaben der Einheit. Unter 80 % heißt: nochmal.') +
-      plan('32–35', 'Decoder + ein Satz', 'Drei Einträge im Decoder lesen. Dann einen echten Satz über deinen Tag schreiben.') +
+      plan('0–6', 'Drill first', 'Clear the cards that are due while your head is fresh.') +
+      plan('6–24', 'One lesson', 'Work through a unit. Say everything out loud, don’t just read it.') +
+      plan('24–32', 'Practice', 'The unit’s questions. Under 80% means: go again.') +
+      plan('32–35', 'Decoder + one sentence', 'Read three decoder entries. Then write one real sentence about your day.') +
       '</div>' +
-      '<div class="btn-row" style="margin-top:24px"><button class="btn btn-ghost btn-sm" data-reset>Fortschritt löschen</button></div>';
+      '<div class="btn-row" style="margin-top:24px"><button class="btn btn-ghost btn-sm" data-reset>Erase my progress</button></div>';
 
     function plan(t, b, s) {
       return '<div class="pstep"><div class="t">' + t + '</div><div><b>' + b + '</b><small>' + s + '</small></div></div>';
     }
     app.querySelector('[data-reset]').addEventListener('click', function () {
-      if (confirm('Wirklich alles zurücksetzen? Fortschritt, Wörter, Punkte — weg.')) DE.reset();
+      if (confirm('Erase everything? Progress, words, points — all of it.')) DE.reset();
     });
     DE.audio.bind(app);
   });

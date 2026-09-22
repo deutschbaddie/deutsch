@@ -14,8 +14,8 @@
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
   function fbBox(ok, msg, sol) {
-    var h = '<b>' + (ok ? 'Richtig! ✓' : 'Noch nicht ✗') + '</b>';
-    if (!ok && sol) h += '<div>Richtig wäre: <span class="sol">' + U.esc(sol) + '</span></div>';
+    var h = '<b>' + (ok ? 'Correct ✓' : 'Not yet ✗') + '</b>';
+    if (!ok && sol) h += '<div>The answer is: <span class="sol">' + U.esc(sol) + '</span></div>';
     if (msg) h += '<div class="small" style="margin-top:6px;opacity:.9">' + U.rich(msg) + '</div>';
     return '<div class="fb ' + (ok ? 'ok' : 'no') + '">' + h + '</div>';
   }
@@ -91,10 +91,10 @@
     inp.autocapitalize = 'off';
     inp.autocomplete = 'off';
     inp.spellcheck = false;
-    inp.placeholder = ex.hint || 'Antwort eintippen…';
+    inp.placeholder = ex.hint || 'Type your answer…';
     wrap.appendChild(inp);
     wrap.appendChild(umlautBar(inp));
-    var btn = U.el('button', 'btn btn-pri btn-sm', 'Prüfen');
+    var btn = U.el('button', 'btn btn-pri btn-sm', 'Check');
     btn.setAttribute('data-check', '');
     btn.style.marginTop = '12px';
     wrap.appendChild(btn);
@@ -113,14 +113,14 @@
   /* -------------------------------------------------------------- trans */
   X.r_trans = function (wrap, ex, settle) {
     wrap.insertAdjacentHTML('beforeend',
-      '<div class="ex-q">Sag das auf Deutsch:</div>' +
+      '<div class="ex-q">Say this in German:</div>' +
       '<div class="ex-sub" style="font-size:16px;color:var(--ink)">„' + U.esc(ex.en) + '“</div>');
     var inp = U.el('input', 'inp');
     inp.type = 'text'; inp.autocapitalize = 'sentences'; inp.autocomplete = 'off'; inp.spellcheck = false;
-    inp.placeholder = ex.hint || 'Ganzer Satz…';
+    inp.placeholder = ex.hint || 'Whole sentence…';
     wrap.appendChild(inp);
     wrap.appendChild(umlautBar(inp));
-    var btn = U.el('button', 'btn btn-pri btn-sm', 'Prüfen');
+    var btn = U.el('button', 'btn btn-pri btn-sm', 'Check');
     btn.setAttribute('data-check', '');
     btn.style.marginTop = '12px';
     wrap.appendChild(btn);
@@ -139,22 +139,22 @@
   /* ------------------------------------------------------------- listen */
   X.r_listen = function (wrap, ex, settle) {
     wrap.insertAdjacentHTML('beforeend',
-      '<div class="ex-q">Hör zu und tipp, was du hörst.</div>' +
-      '<div class="ex-sub">So oft abspielen wie du willst. Langsam ist erlaubt.</div>');
+      '<div class="ex-q">Listen, then type what you hear.</div>' +
+      '<div class="ex-sub">Replay as often as you like. Slow is allowed.</div>');
     var row = U.el('div', 'btn-row');
-    var b1 = U.el('button', 'btn btn-ghost btn-sm', '▶︎ Abspielen');
-    var b2 = U.el('button', 'btn btn-ghost btn-sm', '🐢 Langsam');
+    var b1 = U.el('button', 'btn btn-ghost btn-sm', '▶︎ Play');
+    var b2 = U.el('button', 'btn btn-ghost btn-sm', '🐢 Slow');
     b1.addEventListener('click', function () { DE.audio.say(ex.de); });
     b2.addEventListener('click', function () { DE.audio.say(ex.de, 0.55); });
     row.appendChild(b1); row.appendChild(b2);
     wrap.appendChild(row);
     var inp = U.el('input', 'inp');
     inp.type = 'text'; inp.autocomplete = 'off'; inp.spellcheck = false;
-    inp.placeholder = 'Was hast du gehört?';
+    inp.placeholder = 'What did you hear?';
     inp.style.marginTop = '12px';
     wrap.appendChild(inp);
     wrap.appendChild(umlautBar(inp));
-    var btn = U.el('button', 'btn btn-pri btn-sm', 'Prüfen');
+    var btn = U.el('button', 'btn btn-pri btn-sm', 'Check');
     btn.setAttribute('data-check', '');
     btn.style.marginTop = '12px';
     wrap.appendChild(btn);
@@ -174,7 +174,7 @@
   /* -------------------------------------------------------------- order */
   X.r_order = function (wrap, ex, settle) {
     wrap.insertAdjacentHTML('beforeend',
-      '<div class="ex-q">Bau den Satz.</div>' +
+      '<div class="ex-q">Build the sentence.</div>' +
       '<div class="ex-sub">' + U.esc(ex.en) + '</div>');
     var build = U.el('div', 'build');
     wrap.appendChild(build);
@@ -199,7 +199,7 @@
       });
       bank.appendChild(t);
     });
-    var btn = U.el('button', 'btn btn-pri btn-sm', 'Prüfen');
+    var btn = U.el('button', 'btn btn-pri btn-sm', 'Check');
     btn.setAttribute('data-check', '');
     btn.style.marginTop = '12px';
     wrap.appendChild(btn);
@@ -216,8 +216,8 @@
   /* -------------------------------------------------------------- match */
   X.r_match = function (wrap, ex, settle) {
     wrap.insertAdjacentHTML('beforeend',
-      '<div class="ex-q">' + U.rich(ex.q || 'Was passt zusammen?') + '</div>' +
-      '<div class="ex-sub">Erst Deutsch antippen, dann die Übersetzung.</div>');
+      '<div class="ex-q">' + U.rich(ex.q || 'Match the pairs') + '</div>' +
+      '<div class="ex-sub">Tap the German first, then its translation.</div>');
     var grid = U.el('div', 'matchgrid');
     wrap.appendChild(grid);
     var left = U.shuffle(ex.pairs.map(function (p, i) { return { t: p[0], i: i }; }));
@@ -235,12 +235,12 @@
           b.classList.add('sel'); sel = b;
           return;
         }
-        if (!sel) { DE.toast('Erst ein deutsches Wort wählen.'); return; }
+        if (!sel) { DE.toast('Pick a German word first.'); return; }
         if (sel.dataset.i === b.dataset.i) {
           sel.classList.add('gone'); b.classList.add('gone');
           sel.classList.remove('sel'); sel = null; hits++;
           if (hits === ex.pairs.length) settle(misses === 0, null,
-            misses === 0 ? '' : 'Du hattest ' + misses + ' Fehlversuch(e) — schau dir die Paare nochmal an.');
+            misses === 0 ? '' : 'You had ' + misses + ' wrong attempt(s) — look over those pairs again.');
         } else {
           misses++;
           b.classList.add('no');
@@ -276,7 +276,7 @@
       X.render(body, list[i], {
         onDone: function (ok) {
           if (ok) right++;
-          var b = U.el('button', 'btn btn-pri', i === list.length - 1 ? 'Ergebnis ansehen' : 'Weiter →');
+          var b = U.el('button', 'btn btn-pri', i === list.length - 1 ? 'See result' : 'Next →');
           b.addEventListener('click', function () { i++; step(); });
           foot.appendChild(b);
           setTimeout(function () { b.focus(); }, 40);
@@ -289,11 +289,11 @@
       body.innerHTML =
         '<div class="result">' +
         '<div class="ring" style="--p:' + pct + ';position:relative"><b>' + pct + '%</b></div>' +
-        '<h2>' + (pct >= 80 ? 'Stark!' : pct >= 55 ? 'Solide.' : 'Nochmal.') + '</h2>' +
-        '<p>' + right + ' von ' + list.length + ' richtig.' +
-        (pct >= 80 ? ' Das sitzt.' : pct >= 55 ? ' Fast — eine Runde noch.' : ' Geh die Folien nochmal durch, dann klappt das.') +
+        '<h2>' + (pct >= 80 ? 'Strong.' : pct >= 55 ? 'Solid.' : 'Again.') + '</h2>' +
+        '<p>' + right + ' of ' + list.length + ' right.' +
+        (pct >= 80 ? ' That one sticks.' : pct >= 55 ? ' Close — one more round.' : ' Go back through the slides, then this will click.') +
         '</p></div>';
-      var again = U.el('button', 'btn btn-ghost', '↻ Nochmal');
+      var again = U.el('button', 'btn btn-ghost', '↻ Again');
       again.addEventListener('click', function () { i = 0; right = 0; step(); });
       foot.appendChild(again);
       if (opts.onFinish) opts.onFinish(pct, right, list.length, foot);

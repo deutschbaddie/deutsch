@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Deutsch Lab — A1</title>
-<meta name="description" content="Ein kompletter A1-Kurs: Präsentationen, echtes Alltagsdeutsch und der TikTok-Decoder.">
+<title>Deutsch Lab — German A1</title>
+<meta name="description" content="A complete German A1 course in English: slide lessons, real everyday German, and a TikTok decoder.">
 <meta name="theme-color" content="#0d1117">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇩🇪</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
   <div class="boot-inner">
     <div class="boot-flag">🇩🇪</div>
     <div class="boot-title">Deutsch Lab</div>
-    <div class="boot-sub" id="bootMsg">Lade Kursinhalte…</div>
+    <div class="boot-sub" id="bootMsg">Loading the course…</div>
     <div class="boot-bar"><i id="bootBar"></i></div>
   </div>
 </div>
@@ -29,19 +29,19 @@
     <span class="brand-text">Deutsch&nbsp;Lab</span>
   </button>
   <div class="topbar-stats">
-    <div class="stat" title="Tage in Folge"><span class="stat-ico">🔥</span><b id="statStreak">0</b></div>
-    <div class="stat" title="Gelernte Wörter"><span class="stat-ico">📚</span><b id="statWords">0</b></div>
-    <div class="stat" title="Punkte"><span class="stat-ico">⚡</span><b id="statXp">0</b></div>
+    <div class="stat" title="Day streak"><span class="stat-ico">🔥</span><b id="statStreak">0</b></div>
+    <div class="stat" title="Words that stick"><span class="stat-ico">📚</span><b id="statWords">0</b></div>
+    <div class="stat" title="Points"><span class="stat-ico">⚡</span><b id="statXp">0</b></div>
   </div>
-  <button class="icon-btn" id="btnSettings" aria-label="Einstellungen">⚙️</button>
+  <button class="icon-btn" id="btnSettings" aria-label="Settings">⚙️</button>
 </header>
 
 <nav class="rail" hidden>
-  <a class="rail-item" data-route="home" href="#/"><span>📘</span><i>Kurs</i></a>
-  <a class="rail-item" data-route="trainer" href="#/trainer"><span>🎯</span><i>Trainer</i></a>
+  <a class="rail-item" data-route="home" href="#/"><span>📘</span><i>Course</i></a>
+  <a class="rail-item" data-route="trainer" href="#/trainer"><span>🎯</span><i>Drill</i></a>
   <a class="rail-item" data-route="decoder" href="#/decoder"><span>📱</span><i>Decoder</i></a>
-  <a class="rail-item" data-route="glossar" href="#/glossar"><span>🔤</span><i>Glossar</i></a>
-  <a class="rail-item" data-route="ich" href="#/ich"><span>📈</span><i>Ich</i></a>
+  <a class="rail-item" data-route="glossar" href="#/glossar"><span>🔤</span><i>Words</i></a>
+  <a class="rail-item" data-route="ich" href="#/ich"><span>📈</span><i>Me</i></a>
 </nav>
 
 <main id="app" class="app" hidden></main>
@@ -49,7 +49,7 @@
 <div class="sheet" id="settingsSheet" hidden>
   <div class="sheet-backdrop" data-close></div>
   <div class="sheet-panel">
-    <div class="sheet-head"><h3>Einstellungen</h3><button class="icon-btn" data-close aria-label="Schließen">✕</button></div>
+    <div class="sheet-head"><h3>Settings</h3><button class="icon-btn" data-close aria-label="Close">✕</button></div>
     <div class="sheet-body" id="settingsBody"></div>
   </div>
 </div>

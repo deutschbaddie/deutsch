@@ -36,7 +36,7 @@
 
   /** Speak German text. `rate` defaults to the learner's setting. */
   A.say = function (text, rate, onEnd) {
-    if (!synth) { DE.toast('Dieses Gerät hat keine Sprachausgabe.'); if (onEnd) onEnd(); return; }
+    if (!synth) { DE.toast('This device has no speech output.'); if (onEnd) onEnd(); return; }
     try { synth.cancel(); } catch (e) {}
     var u = new SpeechSynthesisUtterance(String(text));
     var v = A.voice();
@@ -47,7 +47,7 @@
     synth.speak(u);
     if (!voices.length && !v && !warned) {
       warned = true;
-      DE.toast('Keine deutsche Stimme auf diesem Gerät — nutz den 🗣-Link für echte Sprecher.', 4200);
+      DE.toast('No German voice on this device — use the 🗣 link for real speakers.', 4200);
     }
   };
 

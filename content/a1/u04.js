@@ -1,60 +1,60 @@
-/* Einheit 4 — der, die, das */
+/* Unit 4 — der, die, das */
 (function () {
   window.DE.registerUnit({
     id: 'a1-04', level: 'A1', num: 4, minutes: 40,
-    title: 'der, die, das — und der Akkusativ',
-    subtitle: 'Artikel, Plural, ein/kein · der erste Fall, der sich ändert',
+    title: 'der, die, das — and the accusative',
+    subtitle: 'Genders, plurals, ein/kein · the first case that actually changes',
     can: [
-      'Du verstehst, warum jedes Substantiv ein Geschlecht hat — und wie du es meistens errätst.',
-      'Du kannst den Plural bilden.',
-      'Du kannst *einen* von *ein* unterscheiden und weißt, wann was kommt.',
-      'Du kannst mit *kein* und *nicht* richtig verneinen.'
+      'Understand why every noun has a gender — and how to guess it most of the time.',
+      'Form the plural.',
+      'Tell *einen* from *ein* and know when each turns up.',
+      'Negate correctly with *kein* and *nicht*.'
     ],
     slides: [
-      { t: 'goal', kicker: 'Einheit 4', title: 'Die Sache mit den drei Wörtern für „the“',
-        lead: 'Das ist die Einheit, vor der alle Angst haben. Zu Unrecht — es gibt mehr System, als man dir erzählt.',
+      { t: 'goal', kicker: 'Unit 4', title: 'The three words for "the"',
+        lead: 'This is the unit everyone dreads. Unfairly — there is more system here than you have been told.',
         points: [
-          'Jedes Substantiv ist *der*, *die* oder *das*. Das ist Grammatik, nicht Biologie.',
-          'Es gibt Endungen, die das Geschlecht fast immer verraten. Die lernst du gleich.',
-          '*Akkusativ*: nur ein einziges Wort verändert sich wirklich — der → den.',
-          'Verneinung: *kein* vor Substantiven, *nicht* vor allem anderen.'
+          'Every noun is *der*, *die* or *das*. That is grammar, not biology.',
+          'Certain endings give the gender away almost every time. You learn those now.',
+          'The *accusative*: only one word genuinely changes — der becomes den.',
+          'Negation: *kein* in front of nouns, *nicht* in front of everything else.'
         ],
-        note: 'Lern jedes neue Substantiv *mit Artikel*. Nicht „Tisch“, sondern „der Tisch“. Diese eine Gewohnheit spart dir ein Jahr.',
+        note: 'Learn every new noun *with its article*. Not "Tisch" but "der Tisch". That one habit saves you a year.',
         noteKind: 'warn' },
 
-      { t: 'grammar', kicker: 'Grammatik', title: 'Wie du das Geschlecht errätst',
-        body: 'Du musst nicht raten. Endungen verraten das Geschlecht in den meisten Fällen — und diese Liste deckt einen sehr großen Teil des A1-Wortschatzes ab.',
+      { t: 'grammar', kicker: 'Grammar', title: 'How to guess the gender',
+        body: 'You don’t have to guess blindly. Endings give it away most of the time — and this list covers a large slice of all A1 vocabulary.',
         table: {
-          head: ['Artikel', 'typische Endung', 'Beispiele'],
+          head: ['Article', 'Typical ending', 'Examples'],
           rows: [
             ['*die*', '-ung, -heit, -keit, -schaft, -ion, -tät', 'die Wohnung, die Freiheit, die Nation'],
-            ['*die*', '-e (sehr oft)', 'die Lampe, die Sprache, die Frage'],
+            ['*die*', '-e (very often)', 'die Lampe, die Sprache, die Frage'],
             ['*der*', '-er, -en, -ling, -ismus', 'der Lehrer, der Wagen, der Frühling'],
-            ['*der*', 'Tage, Monate, Jahreszeiten, Wetter', 'der Montag, der Juli, der Sommer, der Regen'],
-            ['*das*', '-chen, -lein (Verkleinerung)', 'das Mädchen, das Brötchen'],
+            ['*der*', 'days, months, seasons, weather', 'der Montag, der Juli, der Sommer, der Regen'],
+            ['*das*', '-chen, -lein (diminutives)', 'das Mädchen, das Brötchen'],
             ['*das*', '-ment, -um, -ma', 'das Dokument, das Museum, das Thema'],
-            ['*das*', 'Verben als Substantiv', 'das Essen, das Leben, das Lernen']
+            ['*das*', 'verbs used as nouns', 'das Essen, das Leben, das Lernen']
           ]
         },
         examples: [
-          ['*die* Wohnung, *die* Zeitung, *die* Rechnung', 'all -ung → die'],
+          ['*die* Wohnung, *die* Zeitung, *die* Rechnung', 'everything ending in -ung is die'],
           ['*das* Mädchen (!)', 'girl is neuter — because -chen beats meaning'],
-          ['*der* Montag, *der* Winter, *der* Wind', 'days, seasons, weather → der']
+          ['*der* Montag, *der* Winter, *der* Wind', 'days, seasons, weather are der']
         ],
-        note: '*das Mädchen* ist sächlich, obwohl es ein Mädchen ist. Die Endung *-chen* gewinnt immer gegen die Bedeutung.' },
+        note: '*das Mädchen* — "the girl" — is neuter. The ending *-chen* always wins against the meaning.' },
 
-      { t: 'vocab', kicker: 'Wortschatz', title: 'Dinge, die dich täglich umgeben',
+      { t: 'vocab', kicker: 'Vocabulary', title: 'Things around you every day',
         items: [
-          ['das Handy', 'mobile phone', 'Wo ist mein Handy?', 'Where’s my phone?'],
+          ['das Handy', 'mobile phone', 'Wo ist mein Handy?', "Where's my phone?"],
           ['der Laptop', 'laptop', 'Mein Laptop ist kaputt.', 'My laptop is broken.'],
           ['der Schlüssel', 'key', 'Ich habe den Schlüssel vergessen.', 'I forgot the key.'],
-          ['die Tasche', 'bag', 'Das ist meine Tasche.', 'That’s my bag.'],
-          ['das Buch', 'book', 'Ich lese ein Buch.', 'I’m reading a book.'],
+          ['die Tasche', 'bag', 'Das ist meine Tasche.', "That's my bag."],
+          ['das Buch', 'book', 'Ich lese ein Buch.', "I'm reading a book."],
           ['der Tisch', 'table', 'Der Tisch ist frei.', 'The table is free.'],
           ['der Stuhl', 'chair', 'Nimm den Stuhl da.', 'Take that chair.'],
           ['die Tür', 'door', 'Mach die Tür zu.', 'Close the door.'],
           ['das Fenster', 'window', 'Das Fenster ist offen.', 'The window is open.'],
-          ['das Auto', 'car', 'Ich habe kein Auto.', 'I don’t have a car.'],
+          ['das Auto', 'car', 'Ich habe kein Auto.', "I don't have a car."],
           ['das Geld', 'money', 'Ich habe kein Geld.', 'I have no money.'],
           ['die Uhr', 'watch, clock', 'Die Uhr geht falsch.', 'The clock is wrong.'],
           ['der Stift', 'pen', 'Hast du einen Stift?', 'Do you have a pen?'],
@@ -63,36 +63,37 @@
           ['die Wohnung', 'flat, apartment', 'Meine Wohnung ist klein.', 'My flat is small.']
         ] },
 
-      { t: 'grammar', kicker: 'Die Kernidee', title: 'Akkusativ — das Ding, das etwas abbekommt',
-        body: 'Im Satz „Ich sehe den Mann“ macht *ich* etwas, und *der Mann* bekommt es ab. Das Zweite steht im Akkusativ.\nJetzt die gute Nachricht, und sie ist besser als ihr Ruf: Von allen Artikeln ändert sich im Akkusativ *genau einer*. `der` wird zu `den`. Die, das und die (Plural) bleiben, wie sie sind.',
+      { t: 'grammar', kicker: 'The core idea', title: 'Accusative — the thing on the receiving end',
+        body: 'In "Ich sehe den Mann" (I see the man), *ich* does something and *der Mann* is on the receiving end. The second one goes into the accusative.\nNow the good news, and it is better than the reputation suggests: of all the articles, exactly *one* changes in the accusative. `der` becomes `den`. Die, das and plural die stay exactly as they were.',
         table: {
-          head: ['', 'Nominativ (wer macht?)', 'Akkusativ (wen/was?)'],
+          head: ['', 'Nominative (who does it?)', 'Accusative (whom / what?)'],
           rows: [
-            ['maskulin', '*der* Mann · *ein* Mann', '*den* Mann · *einen* Mann ⚠️'],
-            ['feminin', '*die* Frau · *eine* Frau', '*die* Frau · *eine* Frau'],
-            ['neutrum', '*das* Kind · *ein* Kind', '*das* Kind · *ein* Kind'],
-            ['Plural', '*die* Kinder', '*die* Kinder']
+            ['masculine', '*der* Mann · *ein* Mann', '*den* Mann · *einen* Mann ⚠️'],
+            ['feminine', '*die* Frau · *eine* Frau', '*die* Frau · *eine* Frau'],
+            ['neuter', '*das* Kind · *ein* Kind', '*das* Kind · *ein* Kind'],
+            ['plural', '*die* Kinder', '*die* Kinder']
           ]
         },
         examples: [
           ['*Der* Mann ist da. → Ich sehe *den* Mann.', 'The man is there. → I see the man.'],
-          ['Ich kaufe *einen* Kaffee.', 'I’m buying a coffee.'],
+          ['Ich kaufe *einen* Kaffee.', "I'm buying a coffee."],
           ['Ich habe *eine* Frage.', 'I have a question.'],
           ['Ich nehme *das* Brot.', "I'll take the bread."]
         ],
-        note: 'Merksatz: *Nur der Mann ändert sich.* Wenn du nur das lernst, machst du im Akkusativ 75 % weniger Fehler.', noteKind: 'win' },
+        note: 'Memorise this: *only the masculine changes*. Learn nothing else about the accusative and you already make 75% fewer mistakes.',
+        noteKind: 'win' },
 
-      { t: 'grammar', kicker: 'Grammatik', title: 'Der Plural — fünf Wege',
-        body: 'Deutsch hat kein einfaches „+s“. Es gibt fünf Muster. Du musst sie nicht ableiten können, aber du solltest sie erkennen — und den Plural immer mitlernen.',
+      { t: 'grammar', kicker: 'Grammar', title: 'Plurals — five routes',
+        body: 'German has no simple "+s". There are five patterns. You don’t need to predict them, but you should recognise them — and always learn the plural along with the word.',
         table: {
-          head: ['Muster', 'Singular → Plural', 'typisch für'],
+          head: ['Pattern', 'Singular → Plural', 'Typical for'],
           rows: [
-            ['*-e*', 'das Jahr → die Jahr*e*', 'viele maskuline'],
-            ['*-e* + Umlaut', 'der Stuhl → die St*ü*hl*e*', 'viele maskuline'],
-            ['*-(e)n*', 'die Frau → die Frau*en*', 'fast alle *die*-Wörter'],
-            ['*-er* + Umlaut', 'das Buch → die B*ü*ch*er*', 'viele neutrale'],
-            ['*-s*', 'das Auto → die Auto*s*', 'Fremdwörter, Abkürzungen'],
-            ['*ohne Endung*', 'das Fenster → die Fenster', '-er, -en, -el Endungen']
+            ['*-e*', 'das Jahr → die Jahr*e*', 'many masculine nouns'],
+            ['*-e* + umlaut', 'der Stuhl → die St*ü*hl*e*', 'many masculine nouns'],
+            ['*-(e)n*', 'die Frau → die Frau*en*', 'almost all *die*-words'],
+            ['*-er* + umlaut', 'das Buch → die B*ü*ch*er*', 'many neuter nouns'],
+            ['*-s*', 'das Auto → die Auto*s*', 'loanwords, abbreviations'],
+            ['*no ending*', 'das Fenster → die Fenster', 'words ending in -er, -en, -el']
           ]
         },
         examples: [
@@ -100,19 +101,20 @@
           ['ein Mann → *die Männer*', 'one man → the men'],
           ['ein Handy → *die Handys*', 'one phone → the phones']
         ],
-        note: 'Im Plural ist der Artikel *immer die*. Egal welches Geschlecht im Singular. Das ist ein echtes Geschenk.', noteKind: 'win' },
+        note: 'In the plural the article is *always die*, whatever the singular gender was. That one is a genuine gift.',
+        noteKind: 'win' },
 
-      { t: 'grammar', kicker: 'Grammatik', title: 'kein oder nicht?',
-        body: 'Zwei Verneinungen, klare Aufteilung.\n*kein* verneint Substantive mit *ein* oder ohne Artikel. Es verhält sich genau wie *ein*: kein, keine, keinen.\n*nicht* verneint alles andere — Verben, Adjektive, ganze Aussagen, Substantive mit *der/die/das* oder mit Possessiv.',
+      { t: 'grammar', kicker: 'Grammar', title: 'kein or nicht?',
+        body: 'Two ways to say no, cleanly divided.\n*kein* negates nouns that have *ein* in front of them, or no article at all. It behaves exactly like *ein*: kein, keine, keinen.\n*nicht* negates everything else — verbs, adjectives, whole statements, and nouns that already have *der/die/das* or a possessive.',
         table: {
-          head: ['Aussage', 'Verneinung', 'warum'],
+          head: ['Statement', 'Negated', 'Why'],
           rows: [
             ['Ich habe ein Auto.', 'Ich habe *kein* Auto.', 'ein → kein'],
-            ['Ich habe Zeit.', 'Ich habe *keine* Zeit.', 'kein Artikel → kein'],
-            ['Ich kenne den Mann.', 'Ich kenne den Mann *nicht*.', 'bestimmter Artikel → nicht'],
-            ['Das ist gut.', 'Das ist *nicht* gut.', 'Adjektiv → nicht'],
-            ['Ich komme.', 'Ich komme *nicht*.', 'Verb → nicht'],
-            ['Das ist mein Handy.', 'Das ist *nicht* mein Handy.', 'Possessiv → nicht']
+            ['Ich habe Zeit.', 'Ich habe *keine* Zeit.', 'no article → kein'],
+            ['Ich kenne den Mann.', 'Ich kenne den Mann *nicht*.', 'definite article → nicht'],
+            ['Das ist gut.', 'Das ist *nicht* gut.', 'adjective → nicht'],
+            ['Ich komme.', 'Ich komme *nicht*.', 'verb → nicht'],
+            ['Das ist mein Handy.', 'Das ist *nicht* mein Handy.', 'possessive → nicht']
           ]
         },
         examples: [
@@ -120,99 +122,100 @@
           ['Ich versteh das nicht.', "I don't understand that."],
           ['Das ist keine gute Idee.', "That's not a good idea."]
         ],
-        note: '*nicht* steht meistens *am Ende* des Satzes oder direkt vor dem, was es verneint. „Ich komme heute nicht.“' },
+        note: '*nicht* usually sits at the *end* of the sentence, or directly in front of whatever it negates. "Ich komme heute nicht."' },
 
-      { t: 'dialog', kicker: 'Dialog', title: 'Im Büro, alles weg',
-        setting: 'Zwei Kollegen, informell.',
+      { t: 'dialog', kicker: 'Dialogue', title: 'At the office, nothing to hand',
+        setting: 'Two colleagues, casual.',
         lines: [
           ['Tim', 'Hast du einen Stift?', 'Do you have a pen?'],
-          ['Emerson', 'Nein, ich hab keinen Stift. Nur den Laptop.', 'No, I don’t have a pen. Just the laptop.'],
+          ['Emerson', 'Nein, ich hab keinen Stift. Nur den Laptop.', "No, I don't have a pen. Just the laptop."],
           ['Tim', 'Und ein Papier? Irgendwas?', 'And some paper? Anything?'],
           ['Emerson', 'Auch nicht, sorry.', 'Nope, sorry.'],
-          ['Tim', 'Okay, dann nehm ich das Handy.', 'Okay, then I’ll take the phone.'],
-          ['Emerson', 'Ist das dein Handy? Ich glaub, das ist meins.', 'Is that your phone? I think that’s mine.'],
-          ['Tim', 'Ups. Stimmt. Wo ist denn meins?', 'Oops. True. So where’s mine?'],
+          ['Tim', 'Okay, dann nehm ich das Handy.', "Okay, then I'll take the phone."],
+          ['Emerson', 'Ist das dein Handy? Ich glaub, das ist meins.', "Is that your phone? I think that's mine."],
+          ['Tim', 'Ups. Stimmt. Wo ist denn meins?', "Oops. True. So where's mine?"],
           ['Emerson', 'Keine Ahnung. Guck mal auf dem Tisch da.', 'No idea. Have a look on that table.']
         ],
-        note: 'Achte auf *einen Stift* (Akkusativ, maskulin) gegen *keinen Stift*. Dieselbe Endung — kein folgt ein.' },
+        note: 'Notice *einen Stift* (accusative masculine) against *keinen Stift*. Same ending — kein simply copies ein.' },
 
-      { t: 'pattern', kicker: 'Satzbaukasten', title: 'Ich habe / ich habe kein …',
+      { t: 'pattern', kicker: 'Sentence builder', title: 'I have / I have no …',
         frame: 'Ich habe {}.', enFrame: 'I have {}.',
-        slotLabel: 'Objekt',
+        slotLabel: 'object',
         swaps: [
           ['einen Hund', 'a dog'], ['eine Frage', 'a question'], ['ein Auto', 'a car'],
           ['keinen Hunger', 'no hunger'], ['keine Zeit', 'no time'], ['kein Geld', 'no money']
         ],
-        note: 'Hör den Unterschied: *einen/keinen* nur bei maskulin. Bei feminin *eine/keine*, bei neutrum *ein/kein*.' },
+        note: 'Hear the difference: *einen/keinen* only for masculine. Feminine takes *eine/keine*, neuter *ein/kein*.' },
 
-      { t: 'street', title: 'Der Artikel, den keiner ausspricht',
-        lead: 'Gesprochen verschwinden Artikel halb. Das ist der Hauptgrund, warum du sie beim Hören nicht findest.',
+      { t: 'street', title: 'The article nobody pronounces',
+        lead: 'In speech, articles half disappear. That is the main reason you can’t find them when listening.',
         items: [
-          ['\'nen statt einen', 'a (masculine)', '„Hast du \'nen Stift?“ — extrem häufig, in jedem Video.'],
-          ['\'ne statt eine', 'a (feminine)', '„Ich hab \'ne Frage.“'],
-          ['\'n statt ein', 'a (neuter)', '„Das ist \'n Witz.“'],
-          ['aufs, ins, vom, zum', 'auf das, in das, von dem, zu dem', 'Diese Verschmelzungen sind Standarddeutsch, nicht Slang.'],
-          ['Hab kein Bock', "can't be bothered", 'Streng genommen *keinen* Bock. Gesprochen sagen es viele ohne -en.'],
-          ['Das ist so\'n Ding', "that's such a thing", '„so ein“ → „so\'n“.'],
-          ['Ich hab nix', "I've got nothing", '*nix* = nichts. Sehr häufig gesprochen.'],
-          ['gib mir mal das', 'gimme that', '*mal* macht daraus eine Bitte statt eines Befehls.']
+          ["'nen instead of einen", 'a (masculine)', '"Hast du \'nen Stift?" — extremely common, in every video.'],
+          ["'ne instead of eine", 'a (feminine)', '"Ich hab \'ne Frage." — I have a question.'],
+          ["'n instead of ein", 'a (neuter)', '"Das ist \'n Witz." — That\'s a joke.'],
+          ['aufs, ins, vom, zum', 'auf das, in das, von dem, zu dem', 'These contractions are standard German, not slang.'],
+          ['Hab kein Bock', "can't be bothered", 'Strictly it should be *keinen* Bock. Plenty of people drop the -en when speaking.'],
+          ["Das ist so'n Ding", "that's a whole thing", '"so ein" becomes "so\'n".'],
+          ['Ich hab nix', "I've got nothing", '*nix* = nichts. Very common in speech.'],
+          ['gib mir mal das', 'gimme that', '*mal* is what turns it into a request instead of an order.']
         ],
-        note: 'Du sollst das nicht schreiben. Du sollst es *erkennen*, wenn du es hörst.', noteKind: 'warn' },
+        note: 'You are not meant to write any of this. You are meant to *recognise* it when you hear it.',
+        noteKind: 'warn' },
 
-      { t: 'drill', kicker: 'Sofort üben', title: 'Akkusativ-Runde',
+      { t: 'drill', kicker: 'Try it now', title: 'Accusative round',
         ex: [
           { k: 'fill', q: 'Ich sehe ___ Mann.', a: ['den'], en: 'I see the man.',
-            why: 'Maskulin im Akkusativ: der → *den*.' },
+            why: 'Masculine in the accusative: der → *den*.' },
           { k: 'fill', q: 'Ich sehe ___ Frau.', a: ['die'], en: 'I see the woman.',
-            why: 'Feminin ändert sich nicht: *die* bleibt die.' },
+            why: 'Feminine does not change: *die* stays die.' },
           { k: 'fill', q: 'Ich kaufe ___ Kaffee. (a)', a: ['einen'], en: "I'm buying a coffee.",
-            why: '*der* Kaffee → Akkusativ *einen* Kaffee.' },
-          { k: 'choice', q: 'Wie verneinst du „Ich habe Zeit“?',
+            why: '*der* Kaffee → accusative *einen* Kaffee.' },
+          { k: 'choice', q: 'How do you negate "Ich habe Zeit"?',
             opts: ['Ich habe nicht Zeit.', 'Ich habe keine Zeit.', 'Ich habe kein Zeit.'], a: 1,
-            why: 'Substantiv ohne Artikel → *kein*. *die* Zeit → *keine*.' },
-          { k: 'choice', q: 'Wie verneinst du „Ich kenne den Mann“?',
+            why: 'Noun with no article → *kein*. And *die* Zeit → *keine*.' },
+          { k: 'choice', q: 'How do you negate "Ich kenne den Mann"?',
             opts: ['Ich kenne keinen Mann.', 'Ich kenne den Mann nicht.', 'Ich kenne nicht den Mann.'], a: 1,
-            why: 'Bestimmter Artikel → *nicht*, und zwar am Ende.' }
+            why: 'Definite article → *nicht*, and it goes at the end.' }
         ] },
 
-      { t: 'culture', kicker: 'Strategie', title: 'Was du mit den Artikeln wirklich machen sollst',
-        body: 'Ehrliche Ansage: Muttersprachler hören einen falschen Artikel sofort — und es interessiert sie fast nie. „Ich habe *die* Handy vergessen“ wird verstanden. Du wirst nicht ausgelacht.\nDeshalb: Lass dich davon nicht bremsen. Sprich mit falschen Artikeln, statt aus Angst zu schweigen.\nAber: Lern jedes neue Wort *mit* Artikel und *mit* Plural. „das Buch, die Bücher“. Ein Wort, drei Informationen, ein Aufwand. Machst du das ab heute konsequent, hast du in einem Jahr ein Gefühl dafür, das sich nicht mehr wie Arbeit anfühlt.',
-        note: 'Farbcode hilft: der = blau, die = pink, das = grün. Genau so sind sie in diesem Kurs überall markiert.' },
+      { t: 'culture', kicker: 'Strategy', title: 'What to actually do about genders',
+        body: 'Honest version: native speakers hear a wrong article instantly — and almost never care. "Ich habe *die* Handy vergessen" gets understood. Nobody laughs at you.\nSo don’t let this slow you down. Speak with wrong articles rather than staying silent out of fear.\nBut: learn every new word *with* its article and *with* its plural. "das Buch, die Bücher." One word, three pieces of information, one effort. Do that consistently and in a year you have a feel for it that no longer costs you anything.',
+        note: 'Colour helps: der = blue, die = pink, das = green. That is exactly how they are marked everywhere in this course.' },
 
-      { t: 'recap', kicker: 'Einheit 4', title: 'Was jetzt sitzen sollte',
+      { t: 'recap', kicker: 'Unit 4', title: 'What should stick now',
         points: [
-          'Endungen verraten das Geschlecht: *-ung/-heit/-keit* → die, *-chen* → das, *-er* → der.',
-          'Im Akkusativ ändert sich *nur* maskulin: der → *den*, ein → *einen*.',
-          'Plural-Artikel ist immer *die*.',
-          '*kein* vor Substantiven (mit ein/ohne Artikel), *nicht* vor allem anderen.',
-          '*nicht* steht meist am Satzende.',
-          'Gesprochen: \'nen, \'ne, \'n — hören, nicht schreiben.'
+          'Endings give away gender: *-ung/-heit/-keit* → die, *-chen* → das, *-er* → der.',
+          'In the accusative *only* masculine changes: der → *den*, ein → *einen*.',
+          'The plural article is always *die*.',
+          '*kein* in front of nouns (with ein / no article), *nicht* in front of everything else.',
+          '*nicht* usually goes at the end of the sentence.',
+          'In speech: \'nen, \'ne, \'n — hear them, don’t write them.'
         ] }
     ],
     quiz: [
-      { k: 'fill', q: 'Ich sehe ___ Hund. (the)', a: ['den'], en: 'I see the dog.', why: 'der Hund → Akkusativ *den* Hund.' },
-      { k: 'fill', q: 'Ich habe ___ Frage. (a)', a: ['eine'], en: 'I have a question.', why: 'die Frage → *eine*, unverändert.' },
-      { k: 'fill', q: 'Ich nehme ___ Brot. (the)', a: ['das'], en: "I'll take the bread.", why: 'Neutrum bleibt *das*.' },
+      { k: 'fill', q: 'Ich sehe ___ Hund. (the)', a: ['den'], en: 'I see the dog.', why: 'der Hund → accusative *den* Hund.' },
+      { k: 'fill', q: 'Ich habe ___ Frage. (a)', a: ['eine'], en: 'I have a question.', why: 'die Frage → *eine*, unchanged.' },
+      { k: 'fill', q: 'Ich nehme ___ Brot. (the)', a: ['das'], en: "I'll take the bread.", why: 'Neuter stays *das*.' },
       { k: 'fill', q: 'Ich habe ___ Auto. (no)', a: ['kein'], en: "I don't have a car.", why: 'das Auto → *kein* Auto.' },
-      { k: 'fill', q: 'Er hat ___ Hunger. (no)', a: ['keinen'], en: "He's not hungry.", why: 'der Hunger → Akkusativ *keinen*.' },
-      { k: 'choice', q: 'Welcher Artikel gehört zu „Wohnung“?', opts: ['der', 'die', 'das'], a: 1,
-        why: 'Endung *-ung* → immer *die*.' },
-      { k: 'choice', q: 'Welcher Artikel gehört zu „Mädchen“?', opts: ['der', 'die', 'das'], a: 2,
-        why: '*-chen* macht alles sächlich, auch ein Mädchen.' },
-      { k: 'choice', q: 'Welcher Artikel gehört zu „Montag“?', opts: ['der', 'die', 'das'], a: 0,
-        why: 'Wochentage, Monate, Jahreszeiten und Wetter sind *der*.' },
-      { k: 'choice', q: '„Ich kenne den Film nicht.“ Warum *nicht* und nicht *kein*?',
-        opts: ['Weil Film maskulin ist.', 'Weil ein bestimmter Artikel davorsteht.', 'Weil es Vergangenheit ist.'], a: 1,
-        why: 'Mit *den/die/das* oder Possessiv verneinst du mit *nicht*.' },
+      { k: 'fill', q: 'Er hat ___ Hunger. (no)', a: ['keinen'], en: "He's not hungry.", why: 'der Hunger → accusative *keinen*.' },
+      { k: 'choice', q: 'Which article goes with "Wohnung"?', opts: ['der', 'die', 'das'], a: 1,
+        why: 'Ending *-ung* → always *die*.' },
+      { k: 'choice', q: 'Which article goes with "Mädchen"?', opts: ['der', 'die', 'das'], a: 2,
+        why: '*-chen* makes everything neuter, even a girl.' },
+      { k: 'choice', q: 'Which article goes with "Montag"?', opts: ['der', 'die', 'das'], a: 0,
+        why: 'Days, months, seasons and weather are *der*.' },
+      { k: 'choice', q: '"Ich kenne den Film nicht." Why *nicht* and not *kein*?',
+        opts: ['Because Film is masculine.', 'Because there is a definite article in front of it.', 'Because it is past tense.'], a: 1,
+        why: 'With *den/die/das* or a possessive you negate with *nicht*.' },
       { k: 'order', en: "I don't have any money.", words: ['Ich', 'habe', 'kein', 'Geld'], a: 'Ich habe kein Geld' },
       { k: 'order', en: "I'm buying a coffee.", words: ['Ich', 'kaufe', 'einen', 'Kaffee'], a: 'Ich kaufe einen Kaffee' },
       { k: 'listen', de: 'Ich habe keine Zeit.', a: ['Ich habe keine Zeit', 'Ich hab keine Zeit'], en: "I don't have time." },
       { k: 'listen', de: 'Hast du einen Stift?', a: ['Hast du einen Stift'], en: 'Do you have a pen?' },
-      { k: 'match', q: 'Singular → Plural', pairs: [
+      { k: 'match', q: 'Singular → plural', pairs: [
         ['das Buch', 'die Bücher'], ['der Mann', 'die Männer'], ['die Frau', 'die Frauen'], ['das Auto', 'die Autos']
       ] },
-      { k: 'trans', en: "I don't understand that.", a: ['Ich verstehe das nicht.', 'Das verstehe ich nicht.', 'Ich versteh das nicht.'],
-        hint: 'nicht ans Ende' }
+      { k: 'trans', en: "I don't understand that.",
+        a: ['Ich verstehe das nicht.', 'Das verstehe ich nicht.', 'Ich versteh das nicht.'], hint: 'nicht goes at the end' }
     ]
   });
 })();

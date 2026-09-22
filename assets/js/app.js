@@ -11,18 +11,18 @@
     var voices = DE.audio.voices();
     var body = document.getElementById('settingsBody');
     body.innerHTML =
-      row('Helles Design', 'Für Tageslicht und müde Augen.', toggle(s.theme === 'light', 'theme')) +
-      row('Übersetzung sofort zeigen', 'Aus = du musst erst selbst raten. Empfohlen: aus.', toggle(s.showEn, 'showEn')) +
-      row('Wort automatisch vorlesen', 'Spielt auf jeder Wortschatz-Folie das erste Wort ab.', toggle(s.autoAudio, 'autoAudio')) +
-      '<div class="srow"><div class="lab"><b>Sprechtempo</b><small>Langsamer hilft beim Nachsprechen.</small></div>' +
+      row('Light theme', 'For daylight and tired eyes.', toggle(s.theme === 'light', 'theme')) +
+      row('Show translations straight away', 'Off means you have to guess first. Off is better.', toggle(s.showEn, 'showEn')) +
+      row('Read the first word aloud', 'Plays the top word automatically on every vocabulary slide.', toggle(s.autoAudio, 'autoAudio')) +
+      '<div class="srow"><div class="lab"><b>Speaking speed</b><small>Slower helps when you copy it back.</small></div>' +
       '<select class="sel" data-set="rate">' +
-      [['0.55', 'sehr langsam'], ['0.7', 'langsam'], ['0.9', 'normal'], ['1.05', 'zügig'], ['1.25', 'schnell (wie TikTok)']]
+      [['0.55', 'very slow'], ['0.7', 'slow'], ['0.9', 'normal'], ['1.05', 'brisk'], ['1.25', 'fast (TikTok speed)']]
         .map(function (r) {
           return '<option value="' + r[0] + '"' + (String(s.rate) === r[0] ? ' selected' : '') + '>' + r[1] + '</option>';
         }).join('') + '</select></div>' +
-      '<div class="srow"><div class="lab"><b>Stimme</b><small>' +
-      (voices.length ? voices.length + ' deutsche Stimme(n) auf diesem Gerät.'
-        : 'Keine deutsche Stimme gefunden. Installier eine in den Systemeinstellungen — oder nutz überall den 🗣-Link zu echten Sprechern.') +
+      '<div class="srow"><div class="lab"><b>Voice</b><small>' +
+      (voices.length ? voices.length + ' German voice(s) on this device.'
+        : 'No German voice found. Install one in your system settings — or use the 🗣 link anywhere for real speakers.') +
       '</small></div>' +
       (voices.length ? '<select class="sel" data-set="voice">' +
         voices.map(function (v) {
@@ -30,7 +30,7 @@
             U.esc(v.name.replace(/Microsoft |Google /, '')) + ' · ' + U.esc(v.lang) + '</option>';
         }).join('') + '</select>' : '') +
       '</div>' +
-      '<div class="srow"><div class="lab"><b>Test</b><small>Hör dir an, wie die Stimme klingt.</small></div>' +
+      '<div class="srow"><div class="lab"><b>Try it</b><small>Hear what the voice sounds like.</small></div>' +
       '<button class="btn btn-ghost btn-sm" data-say="Grüß dich! Na, wie läuft\'s bei dir so?">▶︎ Probe</button></div>';
 
     function row(b, sm, ctrl) {
@@ -55,7 +55,7 @@
       var k = t.dataset.set;
       s[k] = k === 'rate' ? parseFloat(t.value) : t.value;
       DE.save();
-      if (k !== 'rate') DE.audio.say('Alles klar.');
+      if (k !== 'rate') DE.audio.say('Alles klar. Los geht\'s.');
     });
     DE.audio.bind(body);
   }
@@ -83,8 +83,8 @@
 
   DE.loadScripts(files, function (p) {
     bar.style.width = Math.max(8, p * 100) + '%';
-    if (p > .5) msg.textContent = 'Wortschatz wird sortiert…';
-    if (p > .85) msg.textContent = 'Fast fertig…';
+    if (p > .5) msg.textContent = 'Sorting the vocabulary…';
+    if (p > .85) msg.textContent = 'Almost there…';
   }, function () {
     bar.style.width = '100%';
     DE.touchDay();
@@ -105,8 +105,8 @@
 
     if (!DE.units.length) {
       document.getElementById('app').innerHTML =
-        '<div class="empty"><div class="e">📦</div><b>Keine Inhalte geladen.</b><br>' +
-        '<span class="small">Prüf, ob der Ordner <code>content/</code> neben der <code>index.html</code> liegt.</span></div>';
+        '<div class="empty"><div class="e">📦</div><b>No content loaded.</b><br>' +
+        '<span class="small">Check that the <code>content/</code> folder sits next to <code>index.html</code>.</span></div>';
     }
   });
 })();

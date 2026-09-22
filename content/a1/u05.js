@@ -1,45 +1,46 @@
-/* Einheit 5 — Mein Tag */
+/* Unit 5 — My day */
 (function () {
   window.DE.registerUnit({
     id: 'a1-05', level: 'A1', num: 5, minutes: 38,
-    title: 'Mein Tag',
-    subtitle: 'Tagesablauf erzählen · trennbare Verben · Wortstellung (Verb an Position 2)',
+    title: 'My day',
+    subtitle: 'Describing your routine · separable verbs · verb in second position',
     can: [
-      'Du kannst erzählen, was du an einem normalen Tag machst.',
-      'Du beherrschst die wichtigste Satzregel des Deutschen: Verb an Position 2.',
-      'Du kannst trennbare Verben benutzen — aufstehen, anrufen, einkaufen.',
-      'Du kannst sagen, wie oft du etwas machst.'
+      'Describe what you do on a normal day.',
+      'Use the single most important German sentence rule: the verb goes second.',
+      'Use separable verbs — aufstehen, anrufen, einkaufen.',
+      'Say how often you do something.'
     ],
     slides: [
-      { t: 'goal', kicker: 'Einheit 5', title: 'Die eine Regel, die alles zusammenhält',
-        lead: 'Wenn du nur eine Grammatikregel aus dem A1-Deutsch mitnimmst, dann diese: das Verb steht an Position 2. Immer.',
+      { t: 'goal', kicker: 'Unit 5', title: 'The one rule that holds everything together',
+        lead: 'If you take only one grammar rule out of A1 German, take this: the verb goes in second position. Always.',
         points: [
-          'Verb an Position 2 — und was „Position“ hier wirklich heißt.',
-          'Trennbare Verben: das Verb bricht auseinander und die Hälfte fliegt ans Satzende.',
-          'Der komplette Tagesablauf als Wortschatz.',
-          'Häufigkeit: immer, oft, manchmal, nie.'
+          'Verb in second position — and what "position" actually means here.',
+          'Separable verbs: the verb splits in half and one half flies to the end.',
+          'A full day’s routine as vocabulary.',
+          'Frequency: always, often, sometimes, never.'
         ] },
 
-      { t: 'grammar', kicker: 'Die Hauptregel', title: 'Verb an Position 2',
-        body: 'Im deutschen Aussagesatz steht das konjugierte Verb immer an der *zweiten Stelle*. Was davor steht, darfst du frei wählen — aber es ist genau *ein* Baustein.\nDas ist der Grund, warum Deutsch für Englischsprachige oft „verdreht“ klingt: Wenn du den Satz mit einer Zeitangabe anfängst, rutscht das Subjekt *hinter* das Verb.',
+      { t: 'grammar', kicker: 'The main rule', title: 'The verb goes second',
+        body: 'In a German statement the conjugated verb is always in the *second slot*. What comes before it is up to you — but it is exactly *one* building block.\nThis is why German sounds "inverted" to English speakers: if you start the sentence with a time expression, the subject slides in *behind* the verb.',
         table: {
-          head: ['Position 1', 'Position 2 (Verb)', 'Rest'],
+          head: ['Slot 1', 'Slot 2 (verb)', 'The rest'],
           rows: [
-            ['Ich', '*stehe*', 'um sieben auf.'],
-            ['Um sieben', '*stehe*', 'ich auf. ⚠️'],
-            ['Heute', '*gehe*', 'ich nicht zur Arbeit.'],
-            ['Am Montag', '*habe*', 'ich einen Termin.'],
-            ['Meine Schwester', '*wohnt*', 'in Berlin.']
+            ['Ich', '*stehe*', 'um sieben auf. — I get up at seven.'],
+            ['Um sieben', '*stehe*', 'ich auf. ⚠️ — At seven I get up.'],
+            ['Heute', '*gehe*', 'ich nicht zur Arbeit. — Today I’m not going to work.'],
+            ['Am Montag', '*habe*', 'ich einen Termin. — On Monday I have an appointment.'],
+            ['Meine Schwester', '*wohnt*', 'in Berlin. — My sister lives in Berlin.']
           ]
         },
         examples: [
           ['*Ich gehe* heute ins Kino.', "I'm going to the cinema today."],
-          ['*Heute gehe ich* ins Kino.', 'Today I’m going to the cinema.'],
+          ['*Heute gehe ich* ins Kino.', "Today I'm going to the cinema."],
           ['*Morgen habe ich* frei.', "Tomorrow I'm off."]
         ],
-        note: 'Englisch sagt „Today I go“. Deutsch sagt „Heute gehe ich“. Verb und Subjekt tauschen die Plätze. Das ist keine Ausnahme — das ist die Regel.', noteKind: 'warn' },
+        note: 'English says "Today I go". German says "Heute gehe ich". Verb and subject swap places. That is not an exception — that is the rule.',
+        noteKind: 'warn' },
 
-      { t: 'vocab', kicker: 'Wortschatz', title: 'Der Tagesablauf',
+      { t: 'vocab', kicker: 'Vocabulary', title: 'The daily routine',
         items: [
           ['aufstehen', 'to get up', 'Ich stehe um sieben auf.', 'I get up at seven.'],
           ['aufwachen', 'to wake up', 'Ich wache früh auf.', 'I wake up early.'],
@@ -62,16 +63,16 @@
           ['der Abend', 'evening', 'am Abend', 'in the evening'],
           ['die Nacht', 'night', 'in der Nacht', 'at night']
         ],
-        note: 'Tageszeiten als Gewohnheit: *morgens, mittags, abends, nachts* — klein und mit -s. „Ich arbeite abends.“' },
+        note: 'For habits, times of day go lowercase with an -s: *morgens, mittags, abends, nachts*. "Ich arbeite abends." — I work evenings.' },
 
-      { t: 'grammar', kicker: 'Grammatik', title: 'Trennbare Verben — das Verb bricht auseinander',
-        body: 'Manche Verben bestehen aus zwei Teilen: einer Vorsilbe und einem Verb. *auf*stehen, *an*rufen, *ein*kaufen, *fern*sehen.\nIm Satz trennen sie sich: das Verb wird konjugiert und steht an Position 2, die Vorsilbe fliegt ans *Satzende*. Dort wartet sie, bis der Satz zu Ende ist.',
+      { t: 'grammar', kicker: 'Grammar', title: 'Separable verbs — the verb splits',
+        body: 'Some verbs are made of two parts: a prefix and a verb. *auf*stehen (get up), *an*rufen (call), *ein*kaufen (shop), *fern*sehen (watch TV).\nIn a sentence they come apart: the verb is conjugated and sits in slot two, and the prefix flies to the *end of the sentence*, where it waits until the sentence is over.',
         table: {
-          head: ['Infinitiv', 'im Satz', 'Bedeutung'],
+          head: ['Infinitive', 'In a sentence', 'Meaning'],
           rows: [
             ['*auf*stehen', 'Ich stehe um sieben *auf*.', 'I get up at seven.'],
-            ['*an*rufen', 'Ich rufe dich später *an*.', 'I’ll call you later.'],
-            ['*ein*kaufen', 'Wir kaufen heute *ein*.', 'We’re shopping today.'],
+            ['*an*rufen', 'Ich rufe dich später *an*.', "I'll call you later."],
+            ['*ein*kaufen', 'Wir kaufen heute *ein*.', "We're shopping today."],
             ['*fern*sehen', 'Er sieht jeden Abend *fern*.', 'He watches TV every evening.'],
             ['*an*fangen', 'Der Film fängt gleich *an*.', 'The film starts in a moment.'],
             ['*mit*kommen', 'Kommst du *mit*?', 'Are you coming along?'],
@@ -84,25 +85,25 @@
           ['Wann *fängt* der Film *an*?', 'When does the film start?'],
           ['*Kommst* du heute Abend *mit*?', 'Are you coming along tonight?']
         ],
-        note: 'Je länger der Satz, desto weiter hinten die Vorsilbe. Deutsche halten den entscheidenden Teil bis zum Schluss zurück — deshalb musst du beim Hören *bis zum Ende* zuhören.' },
+        note: 'The longer the sentence, the further back the prefix. Germans hold the decisive part back until the end — which is why, when listening, you have to wait *to the end*.' },
 
-      { t: 'dialog', kicker: 'Dialog', title: 'Wie sieht dein Tag aus?',
-        setting: 'Zwei Leute in der Bahn.',
+      { t: 'dialog', kicker: 'Dialogue', title: 'What does your day look like?',
+        setting: 'Two people on the train.',
         lines: [
           ['Lena', 'Wann stehst du eigentlich auf?', 'When do you actually get up?'],
           ['Emerson', 'Viel zu früh. Um halb sieben.', 'Way too early. At six thirty.'],
           ['Lena', 'Boah. Und dann?', 'Ugh. And then?'],
           ['Emerson', 'Dusche, Kaffee, und um acht fange ich an.', 'Shower, coffee, and I start at eight.'],
-          ['Lena', 'Frühstückst du nichts?', 'You don’t eat breakfast?'],
+          ['Lena', 'Frühstückst du nichts?', "You don't eat breakfast?"],
           ['Emerson', 'Nie. Ich trinke nur Kaffee.', 'Never. I just drink coffee.'],
-          ['Lena', 'Das ist ungesund, Digga.', 'That’s unhealthy, dude.'],
+          ['Lena', 'Das ist ungesund, Digga.', "That's unhealthy, dude."],
           ['Emerson', 'Weiß ich. Abends koche ich aber richtig.', 'I know. But in the evening I cook properly.'],
           ['Lena', 'Und danach?', 'And after that?'],
           ['Emerson', 'Meistens sehe ich fern oder ruf meine Schwester an.', 'Usually I watch TV or call my sister.']
         ],
-        note: 'Achte auf *fange … an*, *sehe … fern*, *ruf … an*. Die Vorsilben stehen immer am Ende.' },
+        note: 'Watch *fange … an*, *sehe … fern*, *ruf … an*. The prefixes always end up at the end.' },
 
-      { t: 'vocab', kicker: 'Wortschatz', title: 'Wie oft?',
+      { t: 'vocab', kicker: 'Vocabulary', title: 'How often?',
         items: [
           ['immer', 'always', 'Ich bin immer müde.', "I'm always tired."],
           ['meistens', 'usually, most of the time', 'Meistens koche ich.', 'I usually cook.'],
@@ -117,87 +118,87 @@
           ['danach', 'after that', 'Danach gehe ich los.', 'After that I set off.'],
           ['zum Schluss', 'finally, at the end', 'Zum Schluss räume ich auf.', 'At the end I tidy up.']
         ],
-        note: 'Diese Wörter sind Gold für Erzählungen. Mit *zuerst – dann – danach* klingt schon ein A1-Text wie ein echter Text.' },
+        note: 'These words are gold for telling a story. With *zuerst – dann – danach*, even an A1 text starts sounding like a real one.' },
 
-      { t: 'pattern', kicker: 'Satzbaukasten', title: 'Zeit nach vorne stellen',
-        lead: 'Tipp ein Wort an und hör, wie das Verb an Position 2 bleibt und „ich“ nach hinten rutscht.',
+      { t: 'pattern', kicker: 'Sentence builder', title: 'Putting time first',
+        lead: 'Tap a word and watch the verb stay in slot two while "ich" slides behind it.',
         frame: '{} stehe ich um sieben auf.', enFrame: '{} I get up at seven.',
-        slotLabel: 'Zeit',
+        slotLabel: 'time',
         swaps: [
           ['Heute', 'Today'], ['Morgen', 'Tomorrow'], ['Am Montag', 'On Monday'],
           ['Meistens', 'Usually'], ['Jeden Tag', 'Every day'], ['Im Sommer', 'In summer']
         ],
-        note: 'Du siehst es sofort: *stehe* bleibt an Platz zwei, *ich* geht dahinter. Das ist die ganze Regel.' },
+        note: 'You can see it immediately: *stehe* stays in second place, *ich* goes behind it. That is the whole rule.' },
 
-      { t: 'street', title: 'Wie Leute wirklich über ihren Tag reden',
-        lead: 'Im Video sagt niemand „Ich stehe um sieben Uhr auf und frühstücke anschließend“.',
+      { t: 'street', title: 'How people really talk about their day',
+        lead: 'In a video nobody says "I arise at seven and subsequently breakfast".',
         items: [
-          ['Ich pack das nicht', "I can't deal with this", '*packen* = schaffen. Sehr häufig bei Stress.'],
-          ['Ich bin durch', "I'm done / wiped", 'Kann „fertig mit der Arbeit“ oder „völlig erschöpft“ heißen.'],
-          ['verpennt', 'overslept', '„Sorry, hab verpennt.“ Der häufigste Entschuldigungssatz.'],
-          ['chillen', 'to chill', 'Vollwertiges deutsches Verb: ich chille, du chillst.'],
-          ['abhängen', 'to hang out', '„Wir hängen nur ab.“'],
-          ['keinen Bock auf', "not up for", '„Ich hab keinen Bock auf Arbeit.“'],
-          ['am Start sein', 'to be there / be in', '„Bist du heute am Start?“'],
-          ['durchziehen', 'to see something through', '„Ich zieh das jetzt durch.“ Auch trennbar!']
+          ['Ich pack das nicht', "I can't deal with this", '*packen* here means "manage". Very common under stress.'],
+          ['Ich bin durch', "I'm done / wiped", 'Can mean "finished work" or "completely exhausted".'],
+          ['verpennt', 'overslept', '"Sorry, hab verpennt." The most common excuse sentence there is.'],
+          ['chillen', 'to chill', 'A fully functioning German verb: ich chille, du chillst.'],
+          ['abhängen', 'to hang out', '"Wir hängen nur ab." — We\'re just hanging out.'],
+          ['keinen Bock auf', 'not up for', '"Ich hab keinen Bock auf Arbeit." — I can\'t be bothered with work.'],
+          ['am Start sein', 'to be there / be in', '"Bist du heute am Start?" — You around today?'],
+          ['durchziehen', 'to see something through', '"Ich zieh das jetzt durch." Also separable.']
         ],
-        note: '*abhängen*, *durchziehen*, *mitkommen* — Slang folgt derselben Grammatik. Vorsilbe ans Ende.' },
+        note: '*abhängen*, *durchziehen*, *mitkommen* — slang follows the same grammar. Prefix to the end.' },
 
-      { t: 'drill', kicker: 'Sofort üben', title: 'Wortstellung',
+      { t: 'drill', kicker: 'Try it now', title: 'Word order',
         ex: [
           { k: 'order', en: 'Today I get up at seven.', words: ['Heute', 'stehe', 'ich', 'um', 'sieben', 'auf'],
             a: 'Heute stehe ich um sieben auf' },
-          { k: 'choice', q: 'Welcher Satz ist richtig?',
+          { k: 'choice', q: 'Which sentence is correct?',
             opts: ['Morgen ich gehe ins Kino.', 'Morgen gehe ich ins Kino.', 'Ich morgen gehe ins Kino.'], a: 1,
-            why: 'Position 1 = Morgen, Position 2 = das Verb. Das Subjekt rutscht dahinter.' },
+            why: 'Slot 1 = Morgen, slot 2 = the verb. The subject slides in behind it.' },
           { k: 'fill', q: 'Ich rufe dich später ___.', a: ['an'], en: "I'll call you later.",
-            why: '*anrufen* ist trennbar — die Vorsilbe steht am Satzende.' },
+            why: '*anrufen* is separable — the prefix goes to the end of the sentence.' },
           { k: 'fill', q: 'Der Film fängt um acht ___.', a: ['an'], en: 'The film starts at eight.' },
           { k: 'order', en: 'Are you coming along tonight?', words: ['Kommst', 'du', 'heute', 'Abend', 'mit'],
             a: 'Kommst du heute Abend mit' }
         ] },
 
-      { t: 'culture', kicker: 'Alltag', title: 'Warum Deutsche früh anfangen',
-        body: 'Der deutsche Arbeitstag beginnt früh — 7:30 oder 8:00 ist völlig normal, und entsprechend ist um 16:00 oder 17:00 Schluss. Handwerker klingeln um sieben. Bäcker öffnen um halb sechs.\nDafür gilt der Feierabend als heilig. Wer abends um acht noch Arbeits-E-Mails schickt, gilt nicht als fleißig, sondern als schlecht organisiert.\nUnd: *Ruhezeit*. Zwischen 22:00 und 6:00 und oft auch sonntags soll es leise sein. Das ist teilweise sogar rechtlich geregelt. Laute Musik um Mitternacht führt zu echtem Ärger mit den Nachbarn.',
-        note: '*Feierabend* hat kein englisches Wort. Es heißt: der Arbeitstag ist vorbei, und zwar wirklich vorbei.' },
+      { t: 'culture', kicker: 'Everyday life', title: 'Why Germans start early',
+        body: 'The German working day starts early — 7:30 or 8:00 is completely normal, and so it ends at 16:00 or 17:00. Tradesmen ring your doorbell at seven. Bakeries open at half five.\nIn exchange, *Feierabend* — the end of the working day — is sacred. Sending work emails at eight in the evening doesn’t mark you as hard-working, it marks you as badly organised.\nAlso: *Ruhezeit*, quiet hours. Between 22:00 and 06:00, and often on Sundays, it is meant to be quiet. Some of this is actual law. Loud music at midnight leads to genuine trouble with the neighbours.',
+        note: '*Feierabend* has no English word. It means the working day is over, and properly over.' },
 
-      { t: 'recap', kicker: 'Einheit 5', title: 'Was jetzt sitzen sollte',
+      { t: 'recap', kicker: 'Unit 5', title: 'What should stick now',
         points: [
-          'Verb an *Position 2*. Immer. „Heute *gehe* ich.“',
-          'Trennbare Verben brechen auf: Vorsilbe ans *Satzende*.',
+          'The verb goes in *slot two*. Always. "Heute *gehe* ich."',
+          'Separable verbs break apart: prefix to the *end of the sentence*.',
           'auf*stehen*, an*rufen*, ein*kaufen*, fern*sehen*, an*fangen*, mit*kommen*.',
-          'Tageszeiten als Gewohnheit: morgens, mittags, abends, nachts.',
-          'Erzähl-Gerüst: *zuerst – dann – danach – zum Schluss*.',
-          'Beim Hören bis zum Satzende warten — die Vorsilbe kommt zuletzt.'
+          'Times of day as habits: morgens, mittags, abends, nachts.',
+          'Story scaffolding: *zuerst – dann – danach – zum Schluss*.',
+          'When listening, wait for the end of the sentence — the prefix comes last.'
         ] }
     ],
     quiz: [
-      { k: 'choice', q: 'Welcher Satz ist richtig?',
+      { k: 'choice', q: 'Which sentence is correct?',
         opts: ['Am Montag ich arbeite.', 'Am Montag arbeite ich.', 'Am Montag arbeiten ich.'], a: 1,
-        why: 'Verb an Position 2, Subjekt dahinter.' },
+        why: 'Verb in slot two, subject behind it.' },
       { k: 'fill', q: 'Ich stehe um sechs ___.', a: ['auf'], en: 'I get up at six.' },
       { k: 'fill', q: 'Wir kaufen am Samstag ___.', a: ['ein'], en: 'We go shopping on Saturday.' },
       { k: 'fill', q: 'Abends sehe ich ___.', a: ['fern'], en: 'In the evening I watch TV.' },
       { k: 'order', en: 'Tomorrow I start at eight.', words: ['Morgen', 'fange', 'ich', 'um', 'acht', 'an'],
         a: 'Morgen fange ich um acht an' },
       { k: 'order', en: 'I never eat breakfast.', words: ['Ich', 'frühstücke', 'nie'], a: 'Ich frühstücke nie' },
-      { k: 'order', en: 'I call my mother every Sunday.', words: ['Ich', 'rufe', 'meine', 'Mutter', 'jeden', 'Sonntag', 'an'],
-        a: 'Ich rufe meine Mutter jeden Sonntag an' },
-      { k: 'listen', de: 'Ich stehe jeden Tag um sieben auf.', a: ['Ich stehe jeden Tag um sieben auf'], en: 'I get up at seven every day.' },
+      { k: 'order', en: 'I call my mother every Sunday.',
+        words: ['Ich', 'rufe', 'meine', 'Mutter', 'jeden', 'Sonntag', 'an'], a: 'Ich rufe meine Mutter jeden Sonntag an' },
+      { k: 'listen', de: 'Ich stehe jeden Tag um sieben auf.', a: ['Ich stehe jeden Tag um sieben auf'],
+        en: 'I get up at seven every day.' },
       { k: 'listen', de: 'Wann fängt der Film an?', a: ['Wann fängt der Film an'], en: 'When does the film start?' },
-      { k: 'match', q: 'Häufigkeit', pairs: [
+      { k: 'match', q: 'Frequency', pairs: [
         ['immer', 'always'], ['meistens', 'usually'], ['manchmal', 'sometimes'], ['nie', 'never']
       ] },
-      { k: 'match', q: 'Trennbare Verben', pairs: [
+      { k: 'match', q: 'Separable verbs', pairs: [
         ['aufstehen', 'to get up'], ['anrufen', 'to call'], ['einkaufen', 'to go shopping'], ['mitkommen', 'to come along']
       ] },
-      { k: 'trans', en: 'Today I am not going to work.', a: ['Heute gehe ich nicht zur Arbeit.', 'Ich gehe heute nicht zur Arbeit.'],
-        hint: 'nicht vor „zur Arbeit“' },
-      { k: 'choice', q: 'Was bedeutet „Ich hab verpennt“?',
-        opts: ['Ich habe vergessen.', 'Ich habe verschlafen.', 'Ich bin krank.'], a: 1,
-        why: '*verpennen* = verschlafen, Umgangssprache.' },
-      { k: 'choice', q: 'Wo steht die Vorsilbe von „anrufen“ im Satz?',
-        opts: ['Direkt vor dem Verb.', 'Am Ende des Satzes.', 'An Position 1.'], a: 1 }
+      { k: 'trans', en: 'Today I am not going to work.',
+        a: ['Heute gehe ich nicht zur Arbeit.', 'Ich gehe heute nicht zur Arbeit.'], hint: 'nicht before "zur Arbeit"' },
+      { k: 'choice', q: 'What does "Ich hab verpennt" mean?',
+        opts: ['I forgot.', 'I overslept.', "I'm ill."], a: 1, why: '*verpennen* = to oversleep, slang.' },
+      { k: 'choice', q: 'Where does the prefix of "anrufen" go in a sentence?',
+        opts: ['Right before the verb.', 'At the end of the sentence.', 'In slot one.'], a: 1 }
     ]
   });
 })();
