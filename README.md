@@ -57,8 +57,30 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-**Putting it online:** repository Settings → Pages → pick a branch → folder
-`/ (root)`. It's a static site, so it runs there with no further setup.
+**Putting it online:** repository **Settings → Pages → Source: Deploy from a
+branch**, pick the branch and folder `/ (root)`, Save. It's a static site, so
+it runs there with no further setup. After a minute it's live at
+`https://<your-username>.github.io/<repo>/`.
+
+---
+
+## On your phone
+
+The site is a PWA, so it installs to your home screen and works with no signal.
+
+**Once it's online** (see "Putting it online" below), open the URL on your
+phone and:
+
+- **iPhone** — Safari → Share (□↑) → *Add to Home Screen*
+- **Android** — Chrome → ⋮ → *Add to Home screen* / *Install app*
+
+You get an icon, it opens full screen with no browser bars, and after the
+first visit the whole course is stored on the device. Lessons, words, audio
+and exercises all work in a tunnel or on a plane. Your progress is saved on
+the phone.
+
+Two things still need a connection: the 🗣 Forvo links (real speakers) and
+the web fonts. Everything else is offline.
 
 ---
 
@@ -112,9 +134,15 @@ content/
   registry.js           levels + the list of content files  ← extend here
   decoder.js            the TikTok/slang database
   a1/u01.js … u12.js    one file per unit
+manifest.webmanifest    makes it installable on a phone
+sw.js                   service worker — keeps the whole course offline
 docs/CONTENT.md         how to write units (format reference)
 tests/smoke.js          browser test: every exercise type, quiz, drill, content
 ```
+
+If you add content files, add them to the `PRECACHE` list in `sw.js` too, and
+bump `CACHE` to `-v2` so phones drop the old copy. The test suite fails if the
+two lists drift apart.
 
 Content is pure data. The app knows nothing about German — it renders slide
 types and exercise types. That's why A2/B1/B2 isn't a rebuild, just new files.

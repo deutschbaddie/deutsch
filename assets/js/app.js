@@ -103,6 +103,14 @@
     window.addEventListener('hashchange', DE.render);
     DE.render();
 
+    // Offline support. Only over http(s) — from a file:// URL there is no
+    // service worker, and the site works there anyway.
+    if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+      navigator.serviceWorker.register('sw.js').catch(function (err) {
+        console.warn('Offline support unavailable:', err);
+      });
+    }
+
     if (!DE.units.length) {
       document.getElementById('app').innerHTML =
         '<div class="empty"><div class="e">📦</div><b>No content loaded.</b><br>' +

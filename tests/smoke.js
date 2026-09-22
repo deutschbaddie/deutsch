@@ -2,7 +2,8 @@
 const { chromium } = require('playwright-core');
 const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT=path.resolve(__dirname,'..');
-const MIME={'.html':'text/html','.js':'text/javascript','.css':'text/css'};
+const MIME={'.html':'text/html','.js':'text/javascript','.css':'text/css',
+ '.webmanifest':'application/manifest+json','.json':'application/json','.png':'image/png'};
 const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p==='/')p='/index.html';
  const f=path.join(ROOT,p); if(!fs.existsSync(f)){r.writeHead(404);return r.end();}
  r.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'text/plain'}); r.end(fs.readFileSync(f));});
@@ -190,6 +191,35 @@ let FAILED=0;
  });
  ok('content integrity ('+bad.length+' problems)', bad.length===0);
  if (bad.length) console.log('  ' + bad.join('\n  '));
+
+ // ---- offline: the precache list must cover every file the app loads
+ const swSrc = fs.readFileSync(path.join(ROOT,'sw.js'),'utf8');
+ const listed = new Set([...swSrc.matchAll(/'\.\/([^']+)'/g)].map(m=>m[1]));
+ const needed = await page.evaluate(()=>{
+   const out = [...document.querySelectorAll('script[src]')].map(s=>s.getAttribute('src'))
+     .concat([...document.querySelectorAll('link[rel=stylesheet][href]')].map(l=>l.getAttribute('href')))
+     .concat(DE.contentFiles);
+   return [...new Set(out)].filter(u=>!/^https?:/.test(u));
+ });
+ const unlisted = needed.filter(f=>!listed.has(f));
+ ok('sw precache covers every loaded file'+(unlisted.length?' — missing: '+unlisted.join(', '):''), unlisted.length===0);
+ const ghosts = [...listed].filter(f=>f && !f.endsWith('/') && !fs.existsSync(path.join(ROOT,f)));
+ ok('sw precache lists no missing files'+(ghosts.length?' — '+ghosts.join(', '):''), ghosts.length===0);
+
+ // ---- offline: after the worker installs, the app must still boot with the network cut
+ const off = await b.newPage();
+ await off.goto('http://localhost:8098/', { waitUntil:'networkidle' });
+ await off.evaluate(()=>navigator.serviceWorker.ready.then(()=>null));
+ await off.waitForTimeout(1500);                      // let the precache finish
+ await off.context().setOffline(true);
+ let offlineUnits = 0;
+ try {
+   await off.reload({ waitUntil:'load' });
+   await off.waitForTimeout(1500);
+   offlineUnits = await off.evaluate(()=> (window.DE && DE.units) ? DE.units.length : 0);
+ } catch (e) { offlineUnits = -1; }
+ await off.context().setOffline(false);
+ ok('whole course loads with the network off ('+offlineUnits+' units)', offlineUnits===12);
 
  ok('no JS errors', errs.length===0);
  if (errs.length) console.log('  '+errs.join('\n  '));
