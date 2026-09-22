@@ -221,6 +221,37 @@ let FAILED=0;
  await off.context().setOffline(false);
  ok('whole course loads with the network off ('+offlineUnits+' units)', offlineUnits===12);
 
+ // ---- GitHub Pages serves the site from /<repo>/, not from the domain root,
+ // so nothing may assume it lives at /.
+ const sub = http.createServer((q,r)=>{
+   let u=decodeURIComponent(q.url.split('?')[0]);
+   if(!u.startsWith('/deutsch')){ r.writeHead(404); return r.end(); }
+   u=u.slice('/deutsch'.length)||'/';
+   if(u==='/')u='/index.html';
+   const f=path.join(ROOT,u);
+   if(!fs.existsSync(f)||fs.statSync(f).isDirectory()){ r.writeHead(404); return r.end(); }
+   r.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'text/plain'});
+   r.end(fs.readFileSync(f));
+ });
+ await new Promise(r=>sub.listen(8093,r));
+ const subCtx = await b.newContext();
+ const subPage = await subCtx.newPage();
+ const subBad=[]; subPage.on('response',r=>{ if(r.status()>=400) subBad.push(r.status()+' '+r.url()); });
+ await subPage.goto('http://localhost:8093/deutsch/',{waitUntil:'networkidle'});
+ await subPage.waitForTimeout(1200);
+ const subUnits = await subPage.evaluate(()=>(window.DE&&DE.units)?DE.units.length:0);
+ ok('boots when served from a subdirectory ('+subUnits+' units, '+subBad.length+' failed requests)',
+    subUnits===12 && subBad.length===0);
+ const scope = await subPage.evaluate(()=>navigator.serviceWorker.ready.then(r=>r.scope).catch(()=>'none'));
+ ok('service worker scopes to the subdirectory ('+scope+')', /\/deutsch\/$/.test(scope));
+ const startUrl = await subPage.evaluate(async()=>{
+   const l=document.querySelector('link[rel=manifest]');
+   const j=await (await fetch(l.href)).json();
+   return new URL(j.start_url,l.href).pathname;
+ });
+ ok('manifest start_url resolves inside the subdirectory ('+startUrl+')', startUrl==='/deutsch/');
+ await subCtx.close(); sub.close();
+
  ok('no JS errors', errs.length===0);
  if (errs.length) console.log('  '+errs.join('\n  '));
  await b.close(); srv.close();
