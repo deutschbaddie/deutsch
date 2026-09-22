@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deutsch Lab — A1</title>
+<meta name="description" content="Ein kompletter A1-Kurs: Präsentationen, echtes Alltagsdeutsch und der TikTok-Decoder.">
+<meta name="theme-color" content="#0d1117">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇩🇪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div id="boot" class="boot">
+  <div class="boot-inner">
+    <div class="boot-flag">🇩🇪</div>
+    <div class="boot-title">Deutsch Lab</div>
+    <div class="boot-sub" id="bootMsg">Lade Kursinhalte…</div>
+    <div class="boot-bar"><i id="bootBar"></i></div>
+  </div>
+</div>
+
+<header class="topbar" hidden>
+  <button class="brand" data-go="#/">
+    <span class="brand-mark">DL</span>
+    <span class="brand-text">Deutsch&nbsp;Lab</span>
+  </button>
+  <div class="topbar-stats">
+    <div class="stat" title="Tage in Folge"><span class="stat-ico">🔥</span><b id="statStreak">0</b></div>
+    <div class="stat" title="Gelernte Wörter"><span class="stat-ico">📚</span><b id="statWords">0</b></div>
+    <div class="stat" title="Punkte"><span class="stat-ico">⚡</span><b id="statXp">0</b></div>
+  </div>
+  <button class="icon-btn" id="btnSettings" aria-label="Einstellungen">⚙️</button>
+</header>
+
+<nav class="rail" hidden>
+  <a class="rail-item" data-route="home" href="#/"><span>📘</span><i>Kurs</i></a>
+  <a class="rail-item" data-route="trainer" href="#/trainer"><span>🎯</span><i>Trainer</i></a>
+  <a class="rail-item" data-route="decoder" href="#/decoder"><span>📱</span><i>Decoder</i></a>
+  <a class="rail-item" data-route="glossar" href="#/glossar"><span>🔤</span><i>Glossar</i></a>
+  <a class="rail-item" data-route="ich" href="#/ich"><span>📈</span><i>Ich</i></a>
+</nav>
+
+<main id="app" class="app" hidden></main>
+
+<div class="sheet" id="settingsSheet" hidden>
+  <div class="sheet-backdrop" data-close></div>
+  <div class="sheet-panel">
+    <div class="sheet-head"><h3>Einstellungen</h3><button class="icon-btn" data-close aria-label="Schließen">✕</button></div>
+    <div class="sheet-body" id="settingsBody"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="assets/js/core.js"></script>
+<script src="assets/js/audio.js"></script>
+<script src="assets/js/srs.js"></script>
+<script src="assets/js/exercises.js"></script>
+<script src="assets/js/deck.js"></script>
+<script src="assets/js/views.js"></script>
+<script src="content/registry.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* Einheit 2 — Zahlen, Uhrzeit, Termine */
+(function () {
+  window.DE.registerUnit({
+    id: 'a1-02', level: 'A1', num: 2, minutes: 38,
+    title: 'Zahlen, Uhrzeit, Termine',
+    subtitle: 'Zählen, Zeit sagen, sich verabreden · haben · Wochentage',
+    can: [
+      'Du kannst jede Zahl bis eine Million sagen und verstehen.',
+      'Du kannst nach der Uhrzeit fragen und sie sagen — offiziell und wie im Alltag.',
+      'Du kannst einen Termin ausmachen.',
+      'Du kannst deine Telefonnummer und dein Geburtsdatum nennen.'
+    ],
+    slides: [
+      { t: 'goal', kicker: 'Einheit 2', title: 'Zahlen sind der häufigste Hörfehler',
+        lead: 'Du wirst Zahlen lesen können, lange bevor du sie hörst. Das hat einen Grund — und den räumen wir heute weg.',
+        points: [
+          'Deutsche Zahlen sind *rückwärts*: 21 = „einundzwanzig“ = one-and-twenty.',
+          'Uhrzeit im Alltag funktioniert anders als auf dem Fahrplan.',
+          '*haben* — das zweitwichtigste Verb nach *sein*.',
+          'Wochentage, Monate, Datum: der ganze Kalender.'
+        ],
+        note: 'Bei Zahlen unbedingt den Hör-Übungen unten Zeit geben. Lesen reicht hier wirklich nicht.' },
+
+      { t: 'vocab', kicker: 'Wortschatz', title: 'Null bis zwölf',
+        items: [
+          ['null', '0', 'null Grad', 'zero degrees'],
+          ['eins', '1', 'Nummer eins', 'number one'],
+          ['zwei', '2', 'zwei Kaffee, bitte', 'two coffees, please'],
+          ['drei', '3', 'in drei Minuten', 'in three minutes'],
+          ['vier', '4', 'vier Personen', 'four people'],
+          ['fünf', '5', 'fünf Euro', 'five euros'],
+          ['sechs', '6', 'sechs Uhr', 'six o’clock'],
+          ['sieben', '7', 'sieben Tage', 'seven days'],
+          ['acht', '8', 'acht Stunden', 'eight hours'],
+          ['neun', '9', 'neun Wochen', 'nine weeks'],
+          ['zehn', '10', 'zehn Minuten', 'ten minutes'],
+          ['elf', '11', 'elf Uhr', 'eleven o’clock'],
+          ['zwölf', '12', 'zwölf Monate', 'twelve months']
+        ],
+        note: 'Am Telefon sagen Deutsche für 2 oft *zwo* statt *zwei* — damit man es nicht mit *drei* verwechselt.' },
+
+      { t: 'grammar', kicker: 'Grammatik', title: 'Warum 21 rückwärts ist',
+        body: 'Ab 13 baust du Zahlen so: *Einer + und + Zehner*. „Einundzwanzig“ ist wörtlich „one-and-twenty“ — wie im englischen „four-and-twenty blackbirds“, nur dass Deutsch das nie abgeschafft hat.\nGeschrieben wird alles in *einem Wort*. Ja, auch „siebenundachtzig“.',
+        table: {
+          head: ['Zahl', 'Deutsch', 'gebaut aus'],
+          rows: [
+            ['13', 'dreizehn', 'drei + zehn'],
+            ['16', '*sechzehn*', 'sechs verliert das s'],
+            ['17', '*siebzehn*', 'sieben verliert das -en'],
+            ['20', 'zwanzig', '—'],
+            ['21', 'einundzwanzig', 'ein + und + zwanzig'],
+            ['30', 'dreißig', 'mit ß, nicht -zig'],
+            ['42', 'zweiundvierzig', 'zwei + und + vierzig'],
+            ['60', '*sechzig*', 'wieder ohne s'],
+            ['70', '*siebzig*', 'wieder ohne -en'],
+            ['99', 'neunundneunzig', 'neun + und + neunzig']
+          ]
+        },
+        examples: [
+          ['Ich bin siebzehn.', "I'm seventeen."],
+          ['Das kostet zweiundvierzig Euro.', 'That costs forty-two euros.'],
+          ['Sie ist fünfunddreißig Jahre alt.', 'She is thirty-five years old.']
+        ],
+        note: 'Beim Hören von „einundzwanzig“ kommt die *1* zuerst ans Ohr. Deutsche schreiben Zahlen beim Telefonieren deshalb selbst oft erst falsch auf.', noteKind: 'warn' },
+
+      { t: 'vocab', kicker: 'Wortschatz', title: 'Große Zahlen',
+        items: [
+          ['zwanzig', '20', 'zwanzig Euro', 'twenty euros'],
+          ['dreißig', '30', 'dreißig Minuten', 'thirty minutes'],
+          ['vierzig', '40', 'vierzig Grad', 'forty degrees'],
+          ['fünfzig', '50', 'fünfzig Prozent', 'fifty percent'],
+          ['sechzig', '60', 'sechzig Sekunden', 'sixty seconds'],
+          ['siebzig', '70', 'siebzig Jahre', 'seventy years'],
+          ['achtzig', '80', 'achtzig Kilo', 'eighty kilos'],
+          ['neunzig', '90', 'neunzig Tage', 'ninety days'],
+          ['(ein)hundert', '100', 'hundert Euro', 'a hundred euros'],
+          ['zweihundert', '200', 'zweihundert Meter', 'two hundred metres'],
+          ['(ein)tausend', '1.000', 'tausend Leute', 'a thousand people'],
+          ['eine Million', '1.000.000', 'eine Million Aufrufe', 'a million views'],
+          ['die Zahl', 'number (figure)', 'Welche Zahl ist das?', 'Which number is that?'],
+          ['die Nummer', 'number (phone, house)', 'Meine Nummer ist …', 'My number is …']
+        ],
+        note: 'Deutsch benutzt den *Punkt* als Tausendertrennzeichen und das *Komma* für Dezimalstellen: 1.500,50 € — genau andersherum als im Englischen.' },
+
+      { t: 'grammar', kicker: 'Grammatik', title: 'haben — Verb Nummer zwei',
+        body: 'Mit *haben* sagst du, was du besitzt, wie alt du bist (nein, Moment — Alter geht mit *sein*), ob du Zeit hast, Hunger hast, Bock hast. Später baust du damit die ganze Vergangenheit.',
+        table: {
+          head: ['Person', 'Form', 'Beispiel'],
+          rows: [
+            ['ich', '*habe* (gesprochen: hab)', 'Ich hab keine Zeit.'],
+            ['du', '*hast*', 'Hast du Feuer?'],
+            ['er / sie / es', '*hat*', 'Sie hat einen Hund.'],
+            ['wir', '*haben*', 'Wir haben Hunger.'],
+            ['ihr', '*habt*', 'Habt ihr Zeit?'],
+            ['sie / Sie', '*haben*', 'Haben Sie einen Termin?']
+          ]
+        },
+        examples: [
+          ['Ich hab morgen frei.', "I'm off tomorrow."],
+          ['Hast du kurz Zeit?', 'Do you have a minute?'],
+          ['Wir haben einen Termin um drei.', 'We have an appointment at three.']
+        ],
+        note: 'Alter ist die große Ausnahme: *Ich bin 17*, nicht „ich habe 17“. Anders als im Französischen oder Spanischen.', noteKind: 'warn' },
+
+      { t: 'vocab', kicker: 'Wortschatz', title: 'Uhrzeit und Kalender',
+        items: [
+          ['die Uhr', 'clock / o’clock', 'Wie spät ist es?', 'What time is it?'],
+          ['die Stunde', 'hour', 'in einer Stunde', 'in an hour'],
+          ['die Minute', 'minute', 'fünf Minuten', 'five minutes'],
+          ['der Tag', 'day', 'jeden Tag', 'every day'],
+          ['die Woche', 'week', 'nächste Woche', 'next week'],
+          ['der Monat', 'month', 'diesen Monat', 'this month'],
+          ['das Jahr', 'year', 'letztes Jahr', 'last year'],
+          ['heute', 'today', 'Heute ist Montag.', 'Today is Monday.'],
+          ['morgen', 'tomorrow', 'Bis morgen!', 'See you tomorrow!'],
+          ['gestern', 'yesterday', 'Gestern war gut.', 'Yesterday was good.'],
+          ['jetzt', 'now', 'Jetzt sofort.', 'Right now.'],
+          ['später', 'later', 'Bis später.', 'See you later.'],
+          ['früh', 'early', 'Zu früh.', 'Too early.'],
+          ['spät', 'late', 'Es ist schon spät.', 'It’s already late.'],
+          ['der Termin', 'appointment', 'Ich habe einen Termin.', 'I have an appointment.'],
+          ['die Zeit', 'time', 'Hast du Zeit?', 'Do you have time?']
+        ] },
+
+      { t: 'grammar', kicker: 'Grammatik', title: 'Uhrzeit: zwei Systeme, beide nötig',
+        body: 'Auf dem Bahnhof, im Kalender, im Fernsehen: *offiziell*, 24 Stunden, ganz mechanisch. Unter Menschen: *inoffiziell*, 12 Stunden, mit halb und viertel.\nDie Falle ist *halb*. „Halb acht“ ist 7:30, nicht 8:30 — Deutsch zählt zur vollen Stunde *hin*, nicht von ihr weg.',
+        table: {
+          head: ['Uhrzeit', 'offiziell', 'im Alltag'],
+          rows: [
+            ['8:00', 'acht Uhr', 'acht'],
+            ['8:15', 'acht Uhr fünfzehn', '*viertel nach acht*'],
+            ['8:30', 'acht Uhr dreißig', '*halb neun* ⚠️'],
+            ['8:45', 'acht Uhr fünfundvierzig', '*viertel vor neun*'],
+            ['8:10', 'acht Uhr zehn', 'zehn nach acht'],
+            ['8:50', 'acht Uhr fünfzig', 'zehn vor neun'],
+            ['20:00', 'zwanzig Uhr', 'acht (abends)']
+          ]
+        },
+        examples: [
+          ['Wie spät ist es? — Halb neun.', "What time is it? — Half past eight (8:30)."],
+          ['Der Zug fährt um sechzehn Uhr zwölf.', 'The train leaves at 16:12.'],
+          ['Treffen wir uns um acht?', 'Shall we meet at eight?']
+        ],
+        note: '*halb neun* = 8:30. Sag es dir dreimal laut. Dieser Fehler kostet Lernende regelmäßig einen verpassten Termin.', noteKind: 'warn' },
+
+      { t: 'vocab', kicker: 'Wortschatz', title: 'Wochentage und Monate',
+        items: [
+          ['der Montag', 'Monday', 'am Montag', 'on Monday'],
+          ['der Dienstag', 'Tuesday', 'Dienstagabend', 'Tuesday evening'],
+          ['der Mittwoch', 'Wednesday — literally "mid-week"', 'jeden Mittwoch', 'every Wednesday'],
+          ['der Donnerstag', 'Thursday — "Thor\'s day"', 'bis Donnerstag', 'until Thursday'],
+          ['der Freitag', 'Friday', 'Freitag ist frei.', 'Friday is free.'],
+          ['der Samstag', 'Saturday (also: Sonnabend)', 'am Samstag', 'on Saturday'],
+          ['der Sonntag', 'Sunday — everything is closed', 'Sonntag ist alles zu.', 'Everything is closed on Sunday.'],
+          ['das Wochenende', 'weekend', 'Schönes Wochenende!', 'Have a good weekend!'],
+          ['Januar / Februar / März', 'Jan / Feb / Mar', 'im März', 'in March'],
+          ['April / Mai / Juni', 'Apr / May / Jun', 'im Juni', 'in June'],
+          ['Juli / August / September', 'Jul / Aug / Sep', 'im September', 'in September'],
+          ['Oktober / November / Dezember', 'Oct / Nov / Dec', 'im Dezember', 'in December']
+        ],
+        note: 'Alle Wochentage sind *der*. Bei Zeitpunkten: *am* Montag, *im* Juni, *um* acht Uhr.' },
+
+      { t: 'dialog', kicker: 'Dialog', title: 'Einen Termin ausmachen',
+        setting: 'Zwei Freunde schreiben sich. Genau so tippen Deutsche wirklich.',
+        lines: [
+          ['Jonas', 'Ey, hast du morgen Zeit?', 'Hey, you free tomorrow?'],
+          ['Emerson', 'Kommt drauf an. Wann denn?', 'Depends. When?'],
+          ['Jonas', 'So gegen halb sieben?', 'Around half six (6:30)?'],
+          ['Emerson', 'Halb sieben ist schlecht, da arbeite ich noch.', 'Six thirty is bad, I’m still working then.'],
+          ['Jonas', 'Okay, und um acht?', 'Okay, and at eight?'],
+          ['Emerson', 'Acht passt.', 'Eight works.'],
+          ['Jonas', 'Nice. Dann um acht bei mir.', 'Nice. Eight at my place then.'],
+          ['Emerson', 'Alles klar, bis dann!', 'Alright, see you then!']
+        ],
+        note: '*gegen acht* = „around eight“. *um acht* = exakt acht. *ab acht* = „from eight onwards“.' },
+
+      { t: 'street', title: 'Zeit auf die lockere Art',
+        lead: 'Niemand sagt „um achtzehn Uhr dreißig“ zu einem Freund.',
+        items: [
+          ['gegen acht', 'around eight', 'Die sicherste Verabredung. Niemand ist pünktlich auf die Minute.'],
+          ['so um acht rum', 'about eight-ish', 'Noch vager. „rum“ ist Kurzform von „herum“.'],
+          ['halb acht', '7:30 — not 8:30', 'Der Klassiker unter den Missverständnissen.'],
+          ['Punkt acht', 'eight sharp', 'Damit signalisierst du: wirklich pünktlich.'],
+          ['Ich bin gleich da', "I'm almost there", 'Bedeutet in der Praxis zwischen 2 und 25 Minuten.'],
+          ['Ich komm später', "I'll come later", 'Ohne Uhrzeit. Sehr häufig, sehr unverbindlich.'],
+          ['Wann passt’s dir?', 'When suits you?', 'Die normale Frage. Nicht „Wann ist gut für dich“.'],
+          ['Sorry, hab verpennt', 'Sorry, I overslept', '*verpennen* ist Umgangssprache für verschlafen.']
+        ] },
+
+      { t: 'pattern', kicker: 'Satzbaukasten', title: 'Wann treffen wir uns?',
+        frame: 'Treffen wir uns um {}?', enFrame: 'Shall we meet at {}?',
+        slotLabel: 'Uhrzeit',
+        swaps: [
+          ['acht', 'eight'], ['halb neun', 'half past eight'], ['viertel nach sechs', 'quarter past six'],
+          ['viertel vor zehn', 'quarter to ten'], ['zwölf', 'twelve'], ['sieben', 'seven']
+        ],
+        note: 'Für ungefähre Zeiten tausch *um* gegen *gegen*: „Treffen wir uns gegen acht?“' },
+
+      { t: 'drill', kicker: 'Sofort üben', title: 'Zahlen im Ohr',
+        lead: 'Die Höraufgaben sind hier das Wichtigste. Nimm dir die Zeit.',
+        ex: [
+          { k: 'choice', q: 'Wie spät ist „halb zehn“?', opts: ['10:30', '9:30', '9:00'], a: 1,
+            why: 'Deutsch zählt *zur* nächsten Stunde hin: halb zehn = halbwegs bis zehn = 9:30.' },
+          { k: 'listen', de: 'einundzwanzig', a: ['einundzwanzig', '21'], en: 'twenty-one' },
+          { k: 'listen', de: 'siebenundsiebzig', a: ['siebenundsiebzig', '77'], en: 'seventy-seven' },
+          { k: 'fill', q: 'Ich ___ morgen keine Zeit.', a: ['habe', 'hab'], en: "I don't have time tomorrow.",
+            why: 'ich *habe* — gesprochen fast immer „hab“.' },
+          { k: 'choice', q: 'Wie sagst du 16 auf Deutsch?', opts: ['sechszehn', 'sechzehn', 'sechsundzehn'], a: 1,
+            why: '16 verliert das s: *sechzehn*. Genauso 60: *sechzig*.' }
+        ] },
+
+      { t: 'culture', kicker: 'Kultur', title: 'Pünktlichkeit ist echt',
+        body: 'Das Klischee stimmt weitgehend. Bei Terminen — Arzt, Amt, Bewerbung, Uni — heißt 14:00 Uhr: um 13:55 dastehen. Zu spät kommen ist keine Kleinigkeit, es gilt als respektlos.\nBei privaten Verabredungen ist es lockerer, aber auch da schreibt man kurz „bin 10 Min später“. Einfach auftauchen, wann man will, macht man nicht.\nUnd: Sonntags ist in Deutschland fast alles geschlossen. Supermärkte, die meisten Läden. Wer das vergisst, isst sonntags Toast.',
+        note: 'Der nützlichste Satz für zu spät: „Sorry, ich bin zehn Minuten später.“' },
+
+      { t: 'recap', kicker: 'Einheit 2', title: 'Was jetzt sitzen sollte',
+        points: [
+          'Zahlen sind rückwärts gebaut: 21 = ein*und*zwanzig.',
+          '16/17/60/70 verlieren Buchstaben: sech*zehn*, sieb*zehn*, sech*zig*, sieb*zig*.',
+          '*halb neun* = 8:30. Immer eine Stunde „zu früh“ gedacht.',
+          '*haben*: habe, hast, hat, haben, habt, haben.',
+          'Alter mit *sein*: „Ich bin 17.“',
+          '*am* Montag · *im* Juni · *um* acht · *gegen* acht.'
+        ] }
+    ],
+    quiz: [
+      { k: 'choice', q: 'Was ist „halb sieben“?', opts: ['7:30', '6:30', '7:00'], a: 1, why: 'halb sieben = 6:30.' },
+      { k: 'choice', q: 'Wie schreibt man 67?', opts: ['sechsundsiebzig', 'siebenundsechzig', 'sechzigsieben'], a: 1,
+        why: 'Einer zuerst: sieben + und + sechzig.' },
+      { k: 'fill', q: '___ du morgen Zeit?', a: ['hast'], en: 'Do you have time tomorrow?', why: 'du → *hast*.' },
+      { k: 'fill', q: 'Wir ___ einen Termin um drei.', a: ['haben'], en: 'We have an appointment at three.' },
+      { k: 'fill', q: 'Ich bin ___ Jahre alt. (17)', a: ['siebzehn'], en: "I'm seventeen years old.",
+        why: '17 = *siebzehn*, ohne -en von „sieben“.' },
+      { k: 'listen', de: 'Es ist viertel vor neun.', a: ['Es ist viertel vor neun'], en: "It's quarter to nine (8:45)." },
+      { k: 'listen', de: 'Ich habe am Montag einen Termin.', a: ['Ich habe am Montag einen Termin', 'Ich hab am Montag einen Termin'], en: 'I have an appointment on Monday.' },
+      { k: 'order', en: 'Shall we meet at eight?', words: ['Treffen', 'wir', 'uns', 'um', 'acht'], a: 'Treffen wir uns um acht' },
+      { k: 'order', en: 'I have no time today.', words: ['Ich', 'habe', 'heute', 'keine', 'Zeit'], a: 'Ich habe heute keine Zeit' },
+      { k: 'match', q: 'Uhrzeiten', pairs: [
+        ['viertel nach sechs', '6:15'], ['halb sieben', '6:30'], ['viertel vor sieben', '6:45'], ['Punkt sieben', '7:00 sharp']
+      ] },
+      { k: 'match', q: 'Zeitwörter', pairs: [
+        ['gestern', 'yesterday'], ['heute', 'today'], ['morgen', 'tomorrow'], ['gegen acht', 'around eight']
+      ] },
+      { k: 'choice', q: 'Wie sagst du dein Alter?', opts: ['Ich habe 17 Jahre.', 'Ich bin 17.', 'Ich bin 17 Jahre.'], a: 1,
+        why: 'Deutsch nimmt *sein*: „Ich bin 17“ oder „Ich bin 17 Jahre alt“.' },
+      { k: 'trans', en: 'Do you have time on Friday?', a: ['Hast du am Freitag Zeit?', 'Hast du Zeit am Freitag?', 'Haben Sie am Freitag Zeit?'],
+        hint: 'Hast du …' },
+      { k: 'choice', q: '1.500,50 € — wie liest ein Deutscher das?',
+        opts: ['eintausend fünfhundert Komma fünfzig', 'eins Komma fünfhundert', 'fünfzehn Euro fünfzig'], a: 0,
+        why: 'Punkt = Tausender, Komma = Dezimal. Genau umgekehrt zum Englischen.' }
+    ]
+  });
+})();
