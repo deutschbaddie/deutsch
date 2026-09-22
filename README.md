@@ -57,10 +57,19 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-**Putting it online:** repository **Settings → Pages → Source: Deploy from a
-branch**, pick the branch and folder `/ (root)`, Save. It's a static site, so
-it runs there with no further setup. After a minute it's live at
-`https://<your-username>.github.io/<repo>/`.
+**Putting it online (GitHub Pages):** go to **Settings → Pages**, set
+**Source** to *Deploy from a branch*, pick the branch and folder `/ (root)`,
+then Save. After a minute it is live at
+`https://<your-username>.github.io/<repo>/` — note the repo name on the end;
+the bare `<username>.github.io` is a different site that needs its own repo.
+
+Every later push republishes automatically. There is no build step and
+`.nojekyll` is already in place, so GitHub serves the files exactly as they
+are.
+
+A GitHub Actions workflow cannot switch Pages on for you: the Actions token
+gets `Resource not accessible by integration` from the Pages API. The
+dropdown above is the only way to do the first-time setup.
 
 ---
 
